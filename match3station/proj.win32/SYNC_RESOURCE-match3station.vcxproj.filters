@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\CPP\games\match3station\match3station\proj.win32\CMakeFiles\cc59f3aaa3b6c84cb70d2efd5c281427\SYNC_RESOURCE-match3station.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\CPP\games\match3station\match3station\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\CPP\games\match3station\match3station\proj.win32\CMakeFiles\SYNC_RESOURCE-match3station" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{D34C0F94-79CF-379D-89EB-CCB8CB983B55}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
