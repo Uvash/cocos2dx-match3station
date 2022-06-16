@@ -23,6 +23,7 @@
  ****************************************************************************/
 
 #include "HelloWorldScene.h"
+#include "gameObjects/GameField.h"
 
 USING_NS_CC;
 
@@ -114,6 +115,9 @@ bool HelloWorld::init()
         // add the sprite as a child to this layer
         this->addChild(sprite, 0);
     }
+
+    GameField* gameField = GameField::create();
+    addChild(gameField);
     return true;
 }
 

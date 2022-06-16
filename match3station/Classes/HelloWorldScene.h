@@ -22,8 +22,7 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#ifndef __HELLOWORLD_SCENE_H__
-#define __HELLOWORLD_SCENE_H__
+#pragma once
 
 #include "cocos2d.h"
 
@@ -41,4 +40,3 @@ public:
     CREATE_FUNC(HelloWorld);
 };
 
-#endif // __HELLOWORLD_SCENE_H__

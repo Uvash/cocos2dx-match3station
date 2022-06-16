@@ -115,7 +115,8 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <PostBuildEvent>
-      <Message>												</Message>
+      <Message>
+      </Message>
       <Command>setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/CPP/games/match3station/match3station/cocos2d/external/openssl/prebuilt/win32/libssl-1_1.dll D:/CPP/games/match3station/match3station/proj.win32/bin/match3station/Debug/libssl-1_1.dll
 if %errorlevel% neq 0 goto :cmEnd
@@ -279,7 +280,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <PostBuildEvent>
-      <Message>												</Message>
+      <Message>
+      </Message>
       <Command>setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/CPP/games/match3station/match3station/cocos2d/external/openssl/prebuilt/win32/libssl-1_1.dll D:/CPP/games/match3station/match3station/proj.win32/bin/match3station/Release/libssl-1_1.dll
 if %errorlevel% neq 0 goto :cmEnd
@@ -443,7 +445,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <PostBuildEvent>
-      <Message>												</Message>
+      <Message>
+      </Message>
       <Command>setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/CPP/games/match3station/match3station/cocos2d/external/openssl/prebuilt/win32/libssl-1_1.dll D:/CPP/games/match3station/match3station/proj.win32/bin/match3station/MinSizeRel/libssl-1_1.dll
 if %errorlevel% neq 0 goto :cmEnd
@@ -606,7 +609,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <PostBuildEvent>
-      <Message>												</Message>
+      <Message>
+      </Message>
       <Command>setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/CPP/games/match3station/match3station/cocos2d/external/openssl/prebuilt/win32/libssl-1_1.dll D:/CPP/games/match3station/match3station/proj.win32/bin/match3station/RelWithDebInfo/libssl-1_1.dll
 if %errorlevel% neq 0 goto :cmEnd
@@ -797,10 +801,15 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Classes\gameObjects\GameField.cpp" />
+    <ClInclude Include="..\Classes\gameObjects\GameField.h" />
+    <ClInclude Include="..\Classes\gameObjects\GameFigure.h" />
+    <ClInclude Include="..\Classes\gameObjects\HelpStructures.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\HelloWorldScene.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\proj.win32\main.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\proj.win32\resource.h" />
+    <ClCompile Include="..\Classes\gameObjects\GameFigure.cpp" />
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.cpp" />
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="D:\CPP\games\match3station\match3station\proj.win32\main.cpp" />

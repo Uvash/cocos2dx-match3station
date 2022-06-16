@@ -13,6 +13,12 @@
     <ClCompile Include="D:\CPP\games\match3station\match3station\cocos2d\cocos\precheader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\gameObjects\GameField.cpp">
+      <Filter>Source Files\Classes\gameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\gameObjects\GameFigure.cpp">
+      <Filter>Source Files\Classes\gameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.h">
@@ -45,6 +51,15 @@
     <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\res\.gitkeep">
       <Filter>Resources\res</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\gameObjects\GameField.h">
+      <Filter>Source Files\Classes\gameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\gameObjects\GameFigure.h">
+      <Filter>Source Files\Classes\gameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\gameObjects\HelpStructures.h">
+      <Filter>Source Files\Classes\gameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\CPP\games\match3station\match3station\CMakeLists.txt" />
@@ -72,6 +87,9 @@
     </Filter>
     <Filter Include="Source Files\proj.win32">
       <UniqueIdentifier>{40CD843A-18DE-36DD-A79B-8C536F9960C3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\gameObjects">
+      <UniqueIdentifier>{df7ce6ee-9a5f-426d-92df-76dd43812e0f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
