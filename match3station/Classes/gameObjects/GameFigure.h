@@ -19,6 +19,7 @@ class GameFigure : public cocos2d::ui::Widget
 {
 public:
 	GameFigure() = default;
+	GameFigure(GameField& field);
 	~GameFigure() override;
 
 	bool init() override;
@@ -26,15 +27,18 @@ public:
 	Node* getVirtualRenderer() override;
 	void copySpecialProperties(Widget* model) override;
 	const cocos2d::Size& getContentSize() const override;
-	void setPosition(const cocos2d::Vec2& pos) override;
+
+	void setScreenPosition(const cocos2d::Vec2& pos);
+
 	const point2i& getCoordinats();
 	void setCoordinats(const point2i& target);
 
-	GameField* master = nullptr;
 protected:
 	FigureType gameType = FigureType::assistant;
 	cocos2d::Sprite* sprite = nullptr;
 	point2i coordinats = { 0, 0 };
+	GameField& master;
+
 public:
-	CREATE_FUNC(GameFigure);
+	static GameFigure* create(GameField& field);
 };

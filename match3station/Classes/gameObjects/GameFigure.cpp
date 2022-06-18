@@ -4,6 +4,11 @@
 #include <random>
 USING_NS_CC;
 
+GameFigure::GameFigure(GameField& field) : master{field}
+{
+
+}
+
 GameFigure::~GameFigure()
 {
 
@@ -37,12 +42,8 @@ bool GameFigure::init()
 
 	addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type) 
 	{
-		/*SpriteFrameCache* cache = SpriteFrameCache::getInstance();
-		frame = cache->getSpriteFrameByName("./Uvash_CE");
-		sprite->setSpriteFrame(frame);
-		*/
 		if(type == ui::Widget::TouchEventType::BEGAN)
-			master->clickCallback(this);
+			master.clickCallback(this);
 	});
 	return true;
 }
@@ -65,10 +66,9 @@ void GameFigure::copySpecialProperties(Widget* model)
 }
 
 
-void GameFigure::setPosition(const Vec2& pos)
+void GameFigure::setScreenPosition(const Vec2& pos)
 {
 	Widget::setPosition(pos);
-	//sprite->setPosition(pos);
 }
 
 
@@ -85,4 +85,20 @@ const point2i& GameFigure::getCoordinats()
 void GameFigure::setCoordinats(const point2i& target)
 {
 	coordinats = target;
+}
+
+GameFigure* GameFigure::create(GameField& field)
+{
+	GameFigure* pRect = new(std::nothrow) GameFigure(field);
+	if (pRect && pRect->init())
+	{
+		pRect->autorelease();
+		return pRect;
+	}
+	else
+	{
+		delete pRect;
+		pRect = nullptr;
+		return pRect;
+	}
 }
