@@ -1,10 +1,10 @@
 
 #include "GameFigure.h"
-#include "GameField.h"
+#include "GameMode.h"
 #include <random>
 USING_NS_CC;
 
-GameFigure::GameFigure(GameField& field) : master{field}
+GameFigure::GameFigure(GameMode& mode) : gameMode{mode}
 {
 
 }
@@ -16,34 +16,19 @@ GameFigure::~GameFigure()
 
 bool GameFigure::init()
 {
-	std::random_device rd;   // non-deterministic generator
-	std::mt19937 gen(rd());  // to seed mersenne twister.
-	std::uniform_int_distribution<> dist(0, 2); // distribute results between 1 and 6 inclusive.
-
 	sprite = Sprite::create();
-	SpriteFrameCache* cache = SpriteFrameCache::getInstance();
-	SpriteFrame* frame; cache->getSpriteFrameByName("./Uvash_CMO");
+	SpriteFrame* frame;
 
-	switch (dist(gen))
-	{
-		case(0): {frame = cache->getSpriteFrameByName("./Uvash_CMO"); break; }
-		case(1): {frame = cache->getSpriteFrameByName("./Uvash_CE"); break; }
-		case(2): {frame = cache->getSpriteFrameByName("./Uvash_HoS"); break; }
-	}
-
-	if (!frame)
-		return false;
-
-	sprite->setSpriteFrame(frame);
 	addChild(sprite);
+
 	setTouchEnabled(true);
 	setFocusEnabled(false);
 	sprite->setAnchorPoint({0.0, 0.0 });
 
-	addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type) 
+	addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) 
 	{
 		if(type == ui::Widget::TouchEventType::BEGAN)
-			master.clickCallback(this);
+			gameMode.clickCallback(this);
 	});
 	return true;
 }
@@ -87,9 +72,28 @@ void GameFigure::setCoordinats(const point2i& target)
 	coordinats = target;
 }
 
-GameFigure* GameFigure::create(GameField& field)
+void GameFigure::setFigureType(FigureType type)
 {
-	GameFigure* pRect = new(std::nothrow) GameFigure(field);
+	SpriteFrameCache* cache = SpriteFrameCache::getInstance();
+	SpriteFrame* frame = nullptr;
+
+	switch (type) 
+	{	
+		//case(FigureType::assistant) : { break; }
+		case(FigureType::CMO):	{frame = cache->getSpriteFrameByName("./Uvash_CMO"); break; }
+		case(FigureType::CE):	{frame = cache->getSpriteFrameByName("./Uvash_CE"); break; }
+		case(FigureType::HOS):	{frame = cache->getSpriteFrameByName("./Uvash_HoS"); break; }
+		default: {throw std::exception{"GameFigure: try to set unknown type"}; break; }
+	}
+
+	if(sprite != nullptr)
+		sprite->setSpriteFrame(frame);
+	gameType = type;
+}
+
+GameFigure* GameFigure::create(GameMode& mode)
+{
+	GameFigure* pRect = new(std::nothrow) GameFigure(mode);
 	if (pRect && pRect->init())
 	{
 		pRect->autorelease();

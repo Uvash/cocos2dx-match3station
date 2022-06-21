@@ -19,6 +19,9 @@
     <ClCompile Include="..\Classes\gameObjects\GameFigure.cpp">
       <Filter>Source Files\Classes\gameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\gameObjects\GameMode.cpp">
+      <Filter>Source Files\Classes\gameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.h">
@@ -58,6 +61,9 @@
       <Filter>Source Files\Classes\gameObjects</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\gameObjects\HelpStructures.h">
+      <Filter>Source Files\Classes\gameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\gameObjects\GameMode.h">
       <Filter>Source Files\Classes\gameObjects</Filter>
     </ClInclude>
   </ItemGroup>

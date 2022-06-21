@@ -101,6 +101,8 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;COCOS2D_DEBUG=1;_WIN32;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;CC_STATIC;LWS_WITH_LIBUV;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;COCOS2D_DEBUG=1;_WIN32;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;CC_STATIC;LWS_WITH_LIBUV;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
@@ -804,12 +806,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\Classes\gameObjects\GameField.cpp" />
     <ClInclude Include="..\Classes\gameObjects\GameField.h" />
     <ClInclude Include="..\Classes\gameObjects\GameFigure.h" />
+    <ClInclude Include="..\Classes\gameObjects\GameMode.h" />
     <ClInclude Include="..\Classes\gameObjects\HelpStructures.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\HelloWorldScene.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\proj.win32\main.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\proj.win32\resource.h" />
     <ClCompile Include="..\Classes\gameObjects\GameFigure.cpp" />
+    <ClCompile Include="..\Classes\gameObjects\GameMode.cpp" />
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.cpp" />
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="D:\CPP\games\match3station\match3station\proj.win32\main.cpp" />

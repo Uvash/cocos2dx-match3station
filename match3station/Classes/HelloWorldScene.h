@@ -26,6 +26,8 @@
 
 #include "cocos2d.h"
 
+class GameField;
+class GameMode;
 class HelloWorld : public cocos2d::Scene
 {
 public:
@@ -38,5 +40,10 @@ public:
     
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
+protected:
+    void loadSprites();
+
+    GameField* gameField;
+    GameMode* gameMode;
 };
 

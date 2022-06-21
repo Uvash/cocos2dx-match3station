@@ -24,6 +24,7 @@
 
 #include "HelloWorldScene.h"
 #include "gameObjects/GameField.h"
+#include "gameObjects/GameMode.h"
 
 USING_NS_CC;
 
@@ -51,6 +52,10 @@ bool HelloWorld::init()
 
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+
+    loadSprites();
+
 
     /////////////////////////////
     // 2. add a menu item with "X" image, which is clicked to quit the program
@@ -116,8 +121,11 @@ bool HelloWorld::init()
         this->addChild(sprite, 0);
     }
 
-    GameField* gameField = GameField::create();
+    gameField = GameField::create();
     addChild(gameField);
+
+    gameMode = GameMode::create(*gameField);
+    addChild(gameMode);
     return true;
 }
 
@@ -133,4 +141,10 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
     //_eventDispatcher->dispatchEvent(&customEndEvent);
 
 
+}
+
+void HelloWorld::loadSprites()
+{
+    SpriteFrameCache* spriteCache = SpriteFrameCache::getInstance();
+    spriteCache->addSpriteFramesWithFile("uvash.plist");
 }

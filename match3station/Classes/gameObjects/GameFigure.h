@@ -7,19 +7,18 @@
 
 enum class FigureType
 {
-	assistant,
 	CMO,
 	CE,
 	HOS,
 	maxFigure
 };
 
-class GameField;
+class GameMode;
 class GameFigure : public cocos2d::ui::Widget
 {
 public:
 	GameFigure() = default;
-	GameFigure(GameField& field);
+	GameFigure(GameMode& mode);
 	~GameFigure() override;
 
 	bool init() override;
@@ -32,13 +31,13 @@ public:
 
 	const point2i& getCoordinats();
 	void setCoordinats(const point2i& target);
-
+	void setFigureType(FigureType type);
 protected:
 	FigureType gameType = FigureType::assistant;
 	cocos2d::Sprite* sprite = nullptr;
 	point2i coordinats = { 0, 0 };
-	GameField& master;
+	GameMode& gameMode;
 
 public:
-	static GameFigure* create(GameField& field);
+	static GameFigure* create(GameMode& mode);
 };
