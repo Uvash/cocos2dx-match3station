@@ -43,6 +43,7 @@ static void problemLoading(const char* filename)
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
+    /*
     //////////////////////////////
     // 1. super init first
     if ( !Scene::init() )
@@ -53,8 +54,6 @@ bool HelloWorld::init()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-
-    loadSprites();
 
 
     /////////////////////////////
@@ -120,6 +119,9 @@ bool HelloWorld::init()
         // add the sprite as a child to this layer
         this->addChild(sprite, 0);
     }
+    */
+
+    loadSprites();
 
     gameField = GameField::create();
     addChild(gameField);

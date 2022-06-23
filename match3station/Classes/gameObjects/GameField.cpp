@@ -117,5 +117,5 @@ cocos2d::Vec2 GameField::getScreenPositionFrom2i(point2i target)
 {
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	Size offsetPerNode{ visibleSize.width / (size.w + 1), visibleSize.height / (size.h + 1) };
-	return { offsetPerNode.width * (target.w + 1) - spriteSize / 2, offsetPerNode.height * (target.h + 1) - spriteSize / 2 };
+	return { offsetPerNode.width * (target.w + 1), offsetPerNode.height * (target.h + 1)};
 }

@@ -38,6 +38,7 @@ void GameMode::fillField()
 			auto iter = gameField.content.begin() + i;
 			gameField.addFigure(figure, iter);
 			gameField.addChild(figure);
+			//figure->setAnchorPoint({0.0f, 0.0f});
 			i++;
 		});
 }
@@ -53,16 +54,20 @@ void GameMode::clickCallback(GameFigure* figure)
 	if (clicked == nullptr)
 	{
 		clicked = figure;
+		clicked->setFigureStatus(FigureStatus::choosen);
 		return;
 	}
 
 	if (clicked == figure)
 	{
+		clicked->setFigureStatus(FigureStatus::normal);
 		clicked = nullptr;
 		return;
 	}
 
 	gameField.swapFigure(clicked->getCoordinats(), figure->getCoordinats());
+	clicked->setFigureStatus(FigureStatus::normal);
+	figure->setFigureStatus(FigureStatus::normal);
 	clicked = nullptr;
 }
 
