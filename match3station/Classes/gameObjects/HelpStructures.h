@@ -18,6 +18,15 @@ struct point2i
 			return false;
 		return true;
 	}
+
+	point2i operator+(const point2i& left)
+	{
+		return point2i{ x + left.x, y + left.y };
+	}
+
+	point2i operator-(const point2i& left)
+	{
+		return point2i{ x - left.x, y - left.y };
+	}
+
 };
-
-

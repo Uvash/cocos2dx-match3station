@@ -1,6 +1,7 @@
 
 #include "GameFigure.h"
 #include "GameMode.h"
+#include <stdexcept>
 #include <random>
 USING_NS_CC;
 
@@ -58,6 +59,23 @@ void GameFigure::setScreenPosition(const Vec2& pos)
 	Widget::setPosition(pos);
 }
 
+void GameFigure::jumpAndFall(cocos2d::Vec2 jumpPosition, cocos2d::Vec2 targetPosition)
+{
+	this->setFigureStatus(FigureStatus::normal);
+	//setFigureStatus(FigureStatus::moving);
+
+	setScreenPosition(jumpPosition);
+	auto moveTo = MoveTo::create(2, targetPosition);
+
+	auto endMove = [this]()
+	{
+	//	this->setFigureStatus(FigureStatus::normal);
+	};
+
+	//auto seq = Sequence::create(moveTo, endMove, nullptr);
+	auto seq = Sequence::create(moveTo, nullptr);
+	runAction(seq);
+}
 
 const Size& GameFigure::getContentSize() const
 {
@@ -84,7 +102,7 @@ void GameFigure::setFigureType(FigureType type)
 		case(FigureType::CMO):	{frame = cache->getSpriteFrameByName("./Uvash_CMO"); break; }
 		case(FigureType::CE):	{frame = cache->getSpriteFrameByName("./Uvash_CE"); break; }
 		case(FigureType::HOS):	{frame = cache->getSpriteFrameByName("./Uvash_HoS"); break; }
-		default: {throw std::exception{"GameFigure: try to set unknown type"}; break; }
+		default: {throw std::runtime_error(std::string("GameFigure: try to set unknown type")); break; }
 	}
 
 	if(sprite != nullptr)
@@ -111,12 +129,22 @@ void GameFigure::setFigureStatus(FigureStatus gStatus)
 			setChoosen();
 			break; 
 		}
-		default: {throw std::exception{ "GameFigure: try to set unknown status" }; break; }
+		case(FigureStatus::deleted):
+		{
+			setDeleted();
+			break;
+		}
+		case(FigureStatus::moving):
+		{
+			setMoving();
+			break;
+		}
+		default: {throw std::runtime_error(std::string("GameFigure: try to set unknown status") ); break; }
 	}
 
 	gameStatus = gStatus;
 }
-
+/*
 FigureType GameFigure::getFigureType()
 {
 	return gameType;
@@ -126,7 +154,7 @@ FigureStatus GameFigure::getFigureStatus()
 {
 	return gameStatus;
 }
-
+*/
 GameFigure* GameFigure::create(GameMode& mode)
 {
 	GameFigure* pRect = new(std::nothrow) GameFigure(mode);
@@ -152,5 +180,18 @@ void GameFigure::setChoosen()
 void GameFigure::setNormal()
 {
 	stopAllActions();
+	sprite->stopAllActions();
 	setRotation(0);
+	sprite->setOpacity(255);
+}
+
+void GameFigure::setDeleted()
+{	
+	auto fadeOut = FadeOut::create(1.0f);
+	sprite->runAction(fadeOut);
+}
+
+void GameFigure::setMoving()
+{
+
 }

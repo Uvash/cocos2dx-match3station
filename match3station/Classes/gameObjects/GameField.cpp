@@ -5,6 +5,10 @@
 
 USING_NS_CC;
 
+GameField::GameField()
+{
+
+}
 GameField::~GameField()
 {
 	content.clear();
@@ -30,9 +34,20 @@ GameFigure* GameField::getFigureFromField(point2i target)
 	return content[addresInVector];
 }
 
-void GameField::clickCallback(GameFigure* target)
+void GameField::replaceFigure(point2i position)
 {
+	size_t addres = getFigureAddressFromFieldCoordinats(position);
 
+	if (!checkScopeField(addres))
+		return;
+
+	point2i fieldPosition = getFieldCoordinatsFromFigureAddress(addres);
+	auto visibleSize = Director::getInstance()->getVisibleSize();
+
+	cocos2d::Vec2 screenPosition = getScreenPositionFrom2i(fieldPosition);
+	cocos2d::Vec2 spacePosition = { screenPosition.x, screenPosition.y + visibleSize.height };
+
+	content[addres]->jumpAndFall(spacePosition, screenPosition);
 }
 
 void GameField::swapFigure(std::vector<GameFigure*>::iterator firstIt, std::vector<GameFigure*>::iterator secondIt)
@@ -62,6 +77,45 @@ void GameField::swapFigure(point2i first, point2i second)
 	swapFigure(firstIt, secondIt);
 }
 
+
+bool GameField::moveIterator(std::vector<GameFigure*>::iterator& iter, size_t offset)
+{
+	if (offset == 0)
+		return true;
+
+	if(std::distance(iter, content.end()) <= offset)
+		return false;
+
+	iter += offset; // для гурманом можно заменить на advance
+
+	if(checkScopeField(iter))
+		return true;
+	return false;
+}
+
+bool GameField::findNextWithCurrentStatus(std::vector<GameFigure*>::iterator& iter, FigureStatus searchStatus, size_t offset)
+{
+	if (!checkScopeField(iter))
+		return false;
+
+	auto searchCandidate = iter;
+	bool flag = true;
+	while (flag)
+	{
+		auto figureStatu = (*searchCandidate)->getFigureStatus();
+		if (figureStatu != searchStatus)
+		{
+			flag = moveIterator(searchCandidate, offset);
+			continue;
+		}
+
+		iter = searchCandidate;
+		return true;
+	}
+	return false;
+}
+
+
 void GameField::addFigure(GameFigure* pfigure, std::vector<GameFigure*>::iterator iterAddres)
 {
 	if (*iterAddres != nullptr)
@@ -79,7 +133,20 @@ void GameField::addFigure(GameFigure* pfigure, std::vector<GameFigure*>::iterato
 
 	point2i fieldPosition = getFieldCoordinatsFromFigureAddress(addres);
 	cocos2d::Vec2 screenPositionForFirst = getScreenPositionFrom2i(fieldPosition);
+	auto visibleSize = Director::getInstance()->getVisibleSize();
+	float scaleX = visibleSize.width / 480;
+	float scaleY = visibleSize.height / 320;
+	float scale;
+	if (scaleX > scaleY)
+	{
+		scale = scaleX;
+	}
+	else
+	{
+		scale = scaleY;
+	}
 
+	(*iterAddres)->setScale(scale, scale);
 	(*iterAddres)->setCoordinats(fieldPosition);
 	(*iterAddres)->setScreenPosition(screenPositionForFirst);
 }
@@ -104,6 +171,13 @@ bool GameField::checkScopeField(size_t target)
 	return true;
 }
 
+bool GameField::checkScopeField(std::vector<GameFigure*>::iterator target)
+{
+	if (target != std::clamp(target, content.begin(), content.end() - 1) )
+		return false;
+	return true;
+}
+
 int GameField::getFigureAddressFromFieldCoordinats(point2i target)
 {
 	return target.h * size.w + target.w;
@@ -111,6 +185,19 @@ int GameField::getFigureAddressFromFieldCoordinats(point2i target)
 point2i GameField::getFieldCoordinatsFromFigureAddress(int address)
 {
 	return { address % size.h, address / size.w };
+}
+
+FigureType GameField::getFiureType(point2i address, point2i offset)
+{
+	size_t addres = getFigureAddressFromFieldCoordinats(address + offset);
+	if (checkScopeField(addres))
+	{
+		GameFigure* figure = content[addres];
+		return figure->getFigureType();
+		return FigureType::CE;
+	}
+
+	return FigureType::maxFigure;
 }
 
 cocos2d::Vec2 GameField::getScreenPositionFrom2i(point2i target)

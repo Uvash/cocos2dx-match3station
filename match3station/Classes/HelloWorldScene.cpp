@@ -23,8 +23,8 @@
  ****************************************************************************/
 
 #include "HelloWorldScene.h"
-#include "gameObjects/GameField.h"
-#include "gameObjects/GameMode.h"
+#include "gameObjects\GameField.h"
+#include "gameObjects\GameMode.h"
 
 USING_NS_CC;
 
@@ -43,7 +43,7 @@ static void problemLoading(const char* filename)
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
-    /*
+   
     //////////////////////////////
     // 1. super init first
     if ( !Scene::init() )
@@ -55,7 +55,7 @@ bool HelloWorld::init()
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 
-
+    
     /////////////////////////////
     // 2. add a menu item with "X" image, which is clicked to quit the program
     //    you may modify it.
@@ -83,7 +83,7 @@ bool HelloWorld::init()
     auto menu = Menu::create(closeItem, NULL);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
-
+    /*
     /////////////////////////////
     // 3. add your codes below...
 
@@ -126,8 +126,8 @@ bool HelloWorld::init()
     gameField = GameField::create();
     addChild(gameField);
 
-    gameMode = GameMode::create(*gameField);
-    addChild(gameMode);
+   gameMode = GameMode::create(*gameField);
+   addChild(gameMode);
     return true;
 }
 

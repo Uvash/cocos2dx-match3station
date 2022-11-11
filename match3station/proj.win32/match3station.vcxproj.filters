@@ -7,20 +7,20 @@
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\HelloWorldScene.cpp">
       <Filter>Source Files\Classes</Filter>
     </ClCompile>
+    <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameField.cpp">
+      <Filter>Source Files\Classes\gameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameFigure.cpp">
+      <Filter>Source Files\Classes\gameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameMode.cpp">
+      <Filter>Source Files\Classes\gameObjects</Filter>
+    </ClCompile>
     <ClCompile Include="D:\CPP\games\match3station\match3station\proj.win32\main.cpp">
       <Filter>Source Files\proj.win32</Filter>
     </ClCompile>
     <ClCompile Include="D:\CPP\games\match3station\match3station\cocos2d\cocos\precheader.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\gameObjects\GameField.cpp">
-      <Filter>Source Files\Classes\gameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\gameObjects\GameFigure.cpp">
-      <Filter>Source Files\Classes\gameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\gameObjects\GameMode.cpp">
-      <Filter>Source Files\Classes\gameObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -29,6 +29,18 @@
     </ClInclude>
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\HelloWorldScene.h">
       <Filter>Source Files\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameField.h">
+      <Filter>Source Files\Classes\gameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameFigure.h">
+      <Filter>Source Files\Classes\gameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameMode.h">
+      <Filter>Source Files\Classes\gameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\HelpStructures.h">
+      <Filter>Source Files\Classes\gameObjects</Filter>
     </ClInclude>
     <ClInclude Include="D:\CPP\games\match3station\match3station\proj.win32\main.h">
       <Filter>Source Files\proj.win32</Filter>
@@ -54,17 +66,11 @@
     <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\res\.gitkeep">
       <Filter>Resources\res</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\gameObjects\GameField.h">
-      <Filter>Source Files\Classes\gameObjects</Filter>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\uvash.plist">
+      <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\gameObjects\GameFigure.h">
-      <Filter>Source Files\Classes\gameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\gameObjects\HelpStructures.h">
-      <Filter>Source Files\Classes\gameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\gameObjects\GameMode.h">
-      <Filter>Source Files\Classes\gameObjects</Filter>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\uvash.png">
+      <Filter>Resources</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -91,11 +97,11 @@
     <Filter Include="Source Files\Classes">
       <UniqueIdentifier>{5EDCDAE5-FF46-389C-BB45-B2CA7EDAA887}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Classes\gameObjects">
+      <UniqueIdentifier>{DD99D27D-DB33-31C9-9A9D-F9F33FDC1239}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\proj.win32">
       <UniqueIdentifier>{40CD843A-18DE-36DD-A79B-8C536F9960C3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Classes\gameObjects">
-      <UniqueIdentifier>{df7ce6ee-9a5f-426d-92df-76dd43812e0f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

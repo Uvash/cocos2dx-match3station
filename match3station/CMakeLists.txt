@@ -40,6 +40,7 @@ if(NOT DEFINED BUILD_ENGINE_DONE) # to test match3station into root project
     set(CMAKE_MODULE_PATH ${COCOS2DX_ROOT_PATH}/cmake/Modules/)
 
     include(CocosBuildSet)
+	set(CMAKE_CXX_STANDARD 17)
     add_subdirectory(${COCOS2DX_ROOT_PATH}/cocos ${ENGINE_BINARY_PATH}/cocos/core)
 endif()
 
@@ -58,10 +59,17 @@ endif()
 list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
      Classes/HelloWorldScene.cpp
+	 Classes/gameObjects/GameField.cpp
+	 Classes/gameObjects/GameFigure.cpp
+	 Classes/gameObjects/GameMode.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/HelloWorldScene.h
+	 Classes/gameObjects/GameField.h
+	 Classes/gameObjects/GameFigure.h
+	 Classes/gameObjects/GameMode.h
+	 Classes/gameObjects/HelpStructures.h
      )
 
 if(ANDROID)

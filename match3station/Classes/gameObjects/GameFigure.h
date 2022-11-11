@@ -17,6 +17,8 @@ enum class FigureStatus
 {
 	normal,
 	choosen,
+	deleted,
+	moving,
 	maxStatus
 };
 
@@ -29,21 +31,21 @@ public:
 	const cocos2d::Size& getContentSize() const override;
 
 	void setScreenPosition(const cocos2d::Vec2& pos);
+	void jumpAndFall(cocos2d::Vec2 jumpPosition, cocos2d::Vec2 targetPosition);
 
 	const point2i& getCoordinats();
 	void setCoordinats(const point2i& target);
 
 	void setFigureType(FigureType type);
 	void setFigureStatus(FigureStatus gStatus);
-	inline FigureType getFigureType();
-	inline FigureStatus getFigureStatus();
+	inline FigureType getFigureType() { return gameType; }
+	inline FigureStatus getFigureStatus() { return gameStatus;  }
 protected:
 	FigureStatus gameStatus = FigureStatus::normal;
 	FigureType gameType = FigureType::CMO;
 	cocos2d::Sprite* sprite = nullptr;
 	point2i coordinats = { 0, 0 };
 	GameMode& gameMode;
-	
 public:
 	static GameFigure* create(GameMode& mode);
 
@@ -56,4 +58,6 @@ public:
 public:
 	void setChoosen();
 	void setNormal();
+	void setDeleted();
+	void setMoving();
 };
