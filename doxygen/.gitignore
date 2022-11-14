@@ -1,0 +1,6 @@
+# Ignore all files in this folders
+/**
+
+# except doxygen
+!Doxyfile
+!.gitignore
