@@ -1,6 +1,6 @@
 /**
 	\addtogroup match3station
-	\brief Класс фигура. Представляет собой обёртку над спрайтом. Связан с GameField
+	\brief РљР»Р°СЃСЃ С„РёРіСѓСЂР°. РџСЂРµРґСЃС‚Р°РІР»СЏРµС‚ СЃРѕР±РѕР№ РѕР±С‘СЂС‚РєСѓ РЅР°Рґ СЃРїСЂР°Р№С‚РѕРј. РЎРІСЏР·Р°РЅ СЃ GameField
 */
 ///@{
 #pragma once
@@ -10,7 +10,7 @@
 #include "ui/UIWidget.h"
 #include "HelpStructures.h"
 
-enum class FigureType	///< Перечисление возможных типов фигурок
+enum class FigureType	///< РџРµСЂРµС‡РёСЃР»РµРЅРёРµ РІРѕР·РјРѕР¶РЅС‹С… С‚РёРїРѕРІ С„РёРіСѓСЂРѕРє
 {
 	CMO,
 	CE,
@@ -18,7 +18,7 @@ enum class FigureType	///< Перечисление возможных типов фигурок
 	maxFigure
 };
 
-enum class FigureStatus	///< Перечисление возможных статусов фигурок
+enum class FigureStatus	///< РџРµСЂРµС‡РёСЃР»РµРЅРёРµ РІРѕР·РјРѕР¶РЅС‹С… СЃС‚Р°С‚СѓСЃРѕРІ С„РёРіСѓСЂРѕРє
 {
 	normal,
 	choosen,
@@ -31,39 +31,39 @@ class GameMode;
 class GameFigure : public cocos2d::ui::Widget
 {
 public:
-	Node* getVirtualRenderer() override;					///< Необходим для корректной работы виджита. 
-	void copySpecialProperties(Widget* model) override;		///< Необходим для корректной работы виджита. Копирует настройки.
-	const cocos2d::Size& getContentSize() const override;	///< Необходим для корректной работы виджита. Передаёт размер во внутрь движка.
+	Node* getVirtualRenderer() override;					///< РќРµРѕР±С…РѕРґРёРј РґР»СЏ РєРѕСЂСЂРµРєС‚РЅРѕР№ СЂР°Р±РѕС‚С‹ РІРёРґР¶РёС‚Р°. 
+	void copySpecialProperties(Widget* model) override;		///< РќРµРѕР±С…РѕРґРёРј РґР»СЏ РєРѕСЂСЂРµРєС‚РЅРѕР№ СЂР°Р±РѕС‚С‹ РІРёРґР¶РёС‚Р°. РљРѕРїРёСЂСѓРµС‚ РЅР°СЃС‚СЂРѕР№РєРё.
+	const cocos2d::Size& getContentSize() const override;	///< РќРµРѕР±С…РѕРґРёРј РґР»СЏ РєРѕСЂСЂРµРєС‚РЅРѕР№ СЂР°Р±РѕС‚С‹ РІРёРґР¶РёС‚Р°. РџРµСЂРµРґР°С‘С‚ СЂР°Р·РјРµСЂ РІРѕ РІРЅСѓС‚СЂСЊ РґРІРёР¶РєР°.
 
-	void setScreenPosition(const cocos2d::Vec2& pos);								///< Устанавливает спрайт в заданных координатах экрана
-	void jumpAndFall(cocos2d::Vec2 jumpPosition, cocos2d::Vec2 targetPosition);		///< Передвигает спрайт в первую позицию и медленно передвигаете во вторую
+	void setScreenPosition(const cocos2d::Vec2& pos);								///< РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЃРїСЂР°Р№С‚ РІ Р·Р°РґР°РЅРЅС‹С… РєРѕРѕСЂРґРёРЅР°С‚Р°С… СЌРєСЂР°РЅР°
+	void jumpAndFall(cocos2d::Vec2 jumpPosition, cocos2d::Vec2 targetPosition);		///< РџРµСЂРµРґРІРёРіР°РµС‚ СЃРїСЂР°Р№С‚ РІ РїРµСЂРІСѓСЋ РїРѕР·РёС†РёСЋ Рё РјРµРґР»РµРЅРЅРѕ РїРµСЂРµРґРІРёРіР°РµС‚Рµ РІРѕ РІС‚РѕСЂСѓСЋ
 
-	const point2i& getCoordinats();				///< Возвращает двумерные координаты поля
-	void setCoordinats(const point2i& target);	///< Устанавливает двумерные координаты поля
+	const point2i& getCoordinats();				///< Р’РѕР·РІСЂР°С‰Р°РµС‚ РґРІСѓРјРµСЂРЅС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ РїРѕР»СЏ
+	void setCoordinats(const point2i& target);	///< РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РґРІСѓРјРµСЂРЅС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ РїРѕР»СЏ
 
-	void setFigureType(FigureType type);								///< Устанавливает тип фигуры
-	void setFigureStatus(FigureStatus gStatus);							///< Устанавливает статус фигуры
-	inline FigureType getFigureType() { return gameType; }				///< Возвращает тип фигуры
-	inline FigureStatus getFigureStatus() { return gameStatus;  }		///< Возвращает статус фигуры
+	void setFigureType(FigureType type);								///< РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ С‚РёРї С„РёРіСѓСЂС‹
+	void setFigureStatus(FigureStatus gStatus);							///< РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЃС‚Р°С‚СѓСЃ С„РёРіСѓСЂС‹
+	inline FigureType getFigureType() { return gameType; }				///< Р’РѕР·РІСЂР°С‰Р°РµС‚ С‚РёРї С„РёРіСѓСЂС‹
+	inline FigureStatus getFigureStatus() { return gameStatus;  }		///< Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃС‚Р°С‚СѓСЃ С„РёРіСѓСЂС‹
 protected:
-	FigureStatus gameStatus = FigureStatus::normal;		///< Статус по умолчанию у вновь создаваемых фигур
-	FigureType gameType = FigureType::CMO;				///< Тип фигуры по умолчанию у вновь создаваемых фигур
-	cocos2d::Sprite* sprite = nullptr;					///< Спрайт по умолчанию у вновь создаваемых фигур
-	point2i coordinats = { 0, 0 };						///< Координаты по умолчанию у вновь создаваемых фигур
-	GameMode& gameMode;									///< Ссылка на управляющий класс игрового режима
+	FigureStatus gameStatus = FigureStatus::normal;		///< РЎС‚Р°С‚СѓСЃ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ Сѓ РІРЅРѕРІСЊ СЃРѕР·РґР°РІР°РµРјС‹С… С„РёРіСѓСЂ
+	FigureType gameType = FigureType::CMO;				///< РўРёРї С„РёРіСѓСЂС‹ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ Сѓ РІРЅРѕРІСЊ СЃРѕР·РґР°РІР°РµРјС‹С… С„РёРіСѓСЂ
+	cocos2d::Sprite* sprite = nullptr;					///< РЎРїСЂР°Р№С‚ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ Сѓ РІРЅРѕРІСЊ СЃРѕР·РґР°РІР°РµРјС‹С… С„РёРіСѓСЂ
+	point2i coordinats = { 0, 0 };						///< РљРѕРѕСЂРґРёРЅР°С‚С‹ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ Сѓ РІРЅРѕРІСЊ СЃРѕР·РґР°РІР°РµРјС‹С… С„РёРіСѓСЂ
+	GameMode& gameMode;									///< РЎСЃС‹Р»РєР° РЅР° СѓРїСЂР°РІР»СЏСЋС‰РёР№ РєР»Р°СЃСЃ РёРіСЂРѕРІРѕРіРѕ СЂРµР¶РёРјР°
 public:
-	static GameFigure* create(GameMode& mode);			///< Основной конструктор
+	static GameFigure* create(GameMode& mode);			///< РћСЃРЅРѕРІРЅРѕР№ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 
-	bool init() override;								///< Инициализирует фигурку до конца
-	void initRenderer() override;						///< Подключает спрайт к фигуре
+	bool init() override;								///< РРЅРёС†РёР°Р»РёР·РёСЂСѓРµС‚ С„РёРіСѓСЂРєСѓ РґРѕ РєРѕРЅС†Р°
+	void initRenderer() override;						///< РџРѕРґРєР»СЋС‡Р°РµС‚ СЃРїСЂР°Р№С‚ Рє С„РёРіСѓСЂРµ
 
-	GameFigure() = delete;								///< Удаляем конструктор по умолчанию
-	GameFigure(GameMode & mode);						///< Конструктор копирования
-	~GameFigure() override;								///< Деструктор
+	GameFigure() = delete;								///< РЈРґР°Р»СЏРµРј РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+	GameFigure(GameMode & mode);						///< РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
+	~GameFigure() override;								///< Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 public:
-	void setChoosen();	///< Устанавливает статус Выбрано
-	void setNormal();	///< Устанавливает статус Нормально
-	void setDeleted();	///< Устанавливает статус Удалено
+	void setChoosen();	///< РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЃС‚Р°С‚СѓСЃ Р’С‹Р±СЂР°РЅРѕ
+	void setNormal();	///< РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЃС‚Р°С‚СѓСЃ РќРѕСЂРјР°Р»СЊРЅРѕ
+	void setDeleted();	///< РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЃС‚Р°С‚СѓСЃ РЈРґР°Р»РµРЅРѕ
 	void setMoving();
 };
 ///@}
