@@ -22,12 +22,22 @@
  THE SOFTWARE.
  ****************************************************************************/
 
+ /**
+     \addtogroup match3station
+     \brief основной модуль, содержащей в себе описание игровой механики, отделёный от основного движка
+ */
+ ///@{
 #pragma once
 
 #include "cocos2d.h"
 
 class GameField;
 class GameMode;
+
+/**
+    \brief основная игровая сцена
+    К данной сцене мы будем привязывать все виджеты. Сгенерирован кокосом при создании проекта.
+*/
 class HelloWorld : public cocos2d::Scene
 {
 public:
@@ -39,11 +49,11 @@ public:
     void menuCloseCallback(cocos2d::Ref* pSender);
     
     // implement the "static create()" method manually
-    CREATE_FUNC(HelloWorld);
+    CREATE_FUNC(HelloWorld);    ///< добавляем static create() для дерева сцены
 protected:
-    void loadSprites();
+    void loadSprites();     ///< Вспомогательная функция для загрузки листа спрайтов
 
-    GameField* gameField;
-    GameMode* gameMode;
+    GameField* gameField;   ///< Элемент сцены - игровое поле для игры 3 в ряд
+    GameMode* gameMode;     ///< Элемент сцены - режим игры для игры 3 в ряд
 };
-
+///@}

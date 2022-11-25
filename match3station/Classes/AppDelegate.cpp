@@ -21,7 +21,10 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-
+ /**
+     \addtogroup match3station
+ */
+///@{
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
 
@@ -133,3 +136,4 @@ void AppDelegate::applicationWillEnterForeground() {
     AudioEngine::resumeAll();
 #endif
 }
+///@}

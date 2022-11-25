@@ -21,7 +21,11 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-
+ /**
+     \defgroup match3station Match 3 Game
+     \brief основной модуль, содержащей в себе описание игровой механики, отделёный от основного движка
+ */
+ ///@{
 #pragma once
 
 #include "cocos2d.h"
@@ -58,4 +62,4 @@ public:
     */
     virtual void applicationWillEnterForeground();
 };
-
+///@}

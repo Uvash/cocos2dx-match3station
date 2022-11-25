@@ -61,7 +61,7 @@ void GameField::swapFigure(std::vector<GameFigure*>::iterator firstIt, std::vect
 	cocos2d::Vec2 screenPositionForFirst = getScreenPositionFrom2i(fieldPositionForFirst);
 	cocos2d::Vec2 screenPositionForSecond = getScreenPositionFrom2i(fieldPositionForSecond);
 
-	std::iter_swap(firstIt, secondIt); //Ïîìåíÿëè óêàçàòåëè â âåêòîðå ìåñòàìè
+	std::iter_swap(firstIt, secondIt); //ÐŸÐ¾Ð¼ÐµÐ½ÑÐ»Ð¸ ÑƒÐºÐ°Ð·Ð°Ñ‚ÐµÐ»Ð¸ Ð² Ð²ÐµÐºÑ‚Ð¾Ñ€Ðµ Ð¼ÐµÑÑ‚Ð°Ð¼Ð¸
 
 	(*firstIt)->setCoordinats(fieldPositionForFirst);
 	(*firstIt)->setScreenPosition(screenPositionForFirst);
@@ -86,7 +86,7 @@ bool GameField::moveIterator(std::vector<GameFigure*>::iterator& iter, size_t of
 	if(std::distance(iter, content.end()) <= offset)
 		return false;
 
-	iter += offset; // äëÿ ãóðìàíîì ìîæíî çàìåíèòü íà advance
+	iter += offset; // Ð´Ð»Ñ Ð³ÑƒÑ€Ð¼Ð°Ð½Ð¾Ð¼ Ð¼Ð¾Ð¶Ð½Ð¾ Ð·Ð°Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð½Ð° advance
 
 	if(checkScopeField(iter))
 		return true;
@@ -159,7 +159,7 @@ void GameField::allocField()
 
 bool GameField::checkScopeField(point2i target)
 {
-	//Íå óâåðåí ÷òî áóäåò ðàáîòàòü áûñòðåå ïîêîìïîíåíòíîãî ñðàâíåíèÿ, íî òàê ÷èòàåìåå
+	//ÐÐµ ÑƒÐ²ÐµÑ€ÐµÐ½ Ñ‡Ñ‚Ð¾ Ð±ÑƒÐ´ÐµÑ‚ Ñ€Ð°Ð±Ð¾Ñ‚Ð°Ñ‚ÑŒ Ð±Ñ‹ÑÑ‚Ñ€ÐµÐµ Ð¿Ð¾ÐºÐ¾Ð¼Ð¿Ð¾Ð½ÐµÐ½Ñ‚Ð½Ð¾Ð³Ð¾ ÑÑ€Ð°Ð²Ð½ÐµÐ½Ð¸Ñ, Ð½Ð¾ Ñ‚Ð°Ðº Ñ‡Ð¸Ñ‚Ð°ÐµÐ¼ÐµÐµ
 	size_t adr = getFigureAddressFromFieldCoordinats(target);
 	return checkScopeField(adr);
 }

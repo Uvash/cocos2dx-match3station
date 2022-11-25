@@ -124,26 +124,24 @@ void GameMode::updateCollum()
 	for (std::vector <bool>::iterator iter = collumFlags.begin(); iter != collumFlags.end(); iter++)
 	{
 		if (!(*iter))
-			continue;	//������� �� ��������� � ����������
-		//��������� ����� �������
+			continue;	
+		
 		auto distance = std::distance(collumFlags.begin(), iter);
-		//� �������� �������� ��� �����
+		
 		auto mapIter = gameField.content.begin();
 		mapIter += distance;
 		
 		while (true)
 		{
-			//���� ������ �������� ������� � �������
 			auto deletedCandidate = mapIter;
 			if (!gameField.findNextWithCurrentStatus(deletedCandidate, FigureStatus::deleted, gameField.size.w))
 			{
-				break; //��� ������ ���� �������, ��������� ������� ������ ������ ���� ����������� �� ��������� �� �����
+				break; 
 			}
-			//������ ������� ������ �������� ������� ����� ���������
 			auto aliveCandidate = deletedCandidate;
 			if (!gameField.findNextWithCurrentStatus(deletedCandidate, FigureStatus::normal, gameField.size.w))
 			{
-				break; //���� �� ����� �� ���������� �� ���� � �� �����.
+				break; 
 			}
 
 			gameField.swapFigure(aliveCandidate, deletedCandidate);
