@@ -35,5 +35,10 @@ public:
 
 	bool init() override;							///< Вспомогательный метод для Node
 	static GameMode* create(GameField& field);		///< Вспомогательный метод для Node
+public:
+	inline void addLockFigure()		{ lockFigureCount++; }		///< Увеличивает lockFigureCount на 1
+	inline void removeLockFigure()	{ lockFigureCount--; }		///< Уменьшает lockFigureCount на 1
+protected:
+	int lockFigureCount = 0;	///< Костыль для подсчёта фигур которые двигаются
 };
 ///@}

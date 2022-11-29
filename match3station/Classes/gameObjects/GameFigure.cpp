@@ -61,19 +61,18 @@ void GameFigure::setScreenPosition(const Vec2& pos)
 
 void GameFigure::jumpAndFall(cocos2d::Vec2 jumpPosition, cocos2d::Vec2 targetPosition)
 {
-	this->setFigureStatus(FigureStatus::normal);
-	//setFigureStatus(FigureStatus::moving);
+	setFigureStatus(FigureStatus::normal);
 
 	setScreenPosition(jumpPosition);
 	auto moveTo = MoveTo::create(2, targetPosition);
 
 	auto endMove = [this]()
 	{
-	//	this->setFigureStatus(FigureStatus::normal);
+		gameMode.removeLockFigure();
 	};
+	auto seq = Sequence::create(moveTo, CallFunc::create(endMove), nullptr);
 
-	//auto seq = Sequence::create(moveTo, endMove, nullptr);
-	auto seq = Sequence::create(moveTo, nullptr);
+	gameMode.addLockFigure();
 	runAction(seq);
 }
 

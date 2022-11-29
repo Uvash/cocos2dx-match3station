@@ -50,6 +50,11 @@ void GameMode::clickCallback(GameFigure* figure)
 		return;
 	}
 
+	if (lockFigureCount > 0)
+	{
+		return;
+	}
+
 	if (clicked == nullptr)
 	{
 		clicked = figure;
