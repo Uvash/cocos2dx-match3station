@@ -69,8 +69,6 @@ void GameMode::clickCallback(GameFigure* figure)
 		return;
 	}
 
-	setNextStatus(GameModeStatus::swap);
-
 	clicked->setFigureStatus(FigureStatus::normal);
 
 	gameField.swapFigure(clicked->getCoordinats(), figure->getCoordinats());
@@ -157,7 +155,6 @@ void GameMode::updateCollum()
 
 	if (!movingFigure.empty())
 	{
-		setNextStatus(GameModeStatus::updateCollum);
 		for (auto figure : movingFigure)
 		{
 			gameField.moveToHomeOnScreen(figure);
@@ -167,8 +164,6 @@ void GameMode::updateCollum()
 
 void GameMode::replaceDeleted()
 {
-	setNextStatus(GameModeStatus::replaceDeleted);
-
 	auto func = [this](GameFigure* figure)
 	{
 		if (figure->getFigureStatus() != FigureStatus::deleted)
@@ -230,15 +225,6 @@ bool GameMode::init()
 }
 
 
-void GameMode::setNextStatus(GameModeStatus nextStatus)
-{
-	if (statusList[CURENT_STATUS] == nextStatus)
-		return;
-
-	std::swap(statusList[ CURENT_STATUS ], statusList[PREVIOUS_STATUS]);
-	statusList[ CURENT_STATUS ] = nextStatus;
-}
-
 GameMode* GameMode::create(GameField& field)
 {
 	GameMode* pRect = new(std::nothrow) GameMode(field);
@@ -265,25 +251,6 @@ void GameMode::removeLockFigure()
 	lockFigureCount--;
 	if (lockFigureCount <= 0)
 	{
-		switch (statusList[CURENT_STATUS])
-		{
-			case GameModeStatus::swap:	
-			{
-				//if(statusList[PREVIOUS_STATUS] == GameModeStatus::normal)
-				//checkFigureFromSet();
-				break;
-			}
-			case GameModeStatus::replaceDeleted:	
-			{
-				//checkFigureFromSet();
-				break;
-			}
-			case GameModeStatus::updateCollum:
-			{
-				//updateCollum();
-				break;
-			}
-		}
 		checkFigureFromSet();
 		updateCollum();
 		replaceDeleted();

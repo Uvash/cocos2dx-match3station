@@ -15,16 +15,6 @@ class GameFigure;
 class point2i;
 enum class FigureType;
 
-enum class GameModeStatus	///< Описываем статусы Игрового Режима как конечный автомат с хранение преведущего состояния
-{
-	normal = 0,				///< Всё хорошо ожидаем ввод от игрока
-	moving = 1,
-	swap = 2,				///< Идёт обмен фигурок
-	checkCombination = 3,	///< Проверка после хода
-	updateCollum = 4,		///< Обновляем столбцы, поднимая "удалённые" фигурки наверх, и скидывая "живые" вниз
-	replaceDeleted = 5		///< Заменяет "удалённые" фигурки на новые
-};
-
 class GameMode : public cocos2d::Node ///< Наследуемся от ноды, дабы соответствовать дао движка
 {
 public:
@@ -44,9 +34,6 @@ protected:
 	int collumRequestToCombination = 3;		///< Кол-во фигурок необходимое в столбец
 
 	std::vector <bool> collumFlags;			///< Вспомогательный вектор, для хранения флагов столбцов, отмечающих необходимость их обновления
-
-	std::array< GameModeStatus, STATUS_SIZE > statusList = { GameModeStatus::normal, GameModeStatus::normal }; ///< Вспомогательный массив из 2-х элементов для хранения текущего [ 0 ] и преведущего [ 1 ] статуса.
-	void setNextStatus(GameModeStatus nextStatus);
 
 public:
 	GameMode(GameField &gField);
