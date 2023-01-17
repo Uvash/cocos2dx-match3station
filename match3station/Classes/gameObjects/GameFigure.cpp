@@ -59,20 +59,32 @@ void GameFigure::setScreenPosition(const Vec2& pos)
 	Widget::setPosition(pos);
 }
 
-void GameFigure::jumpAndFall(cocos2d::Vec2 jumpPosition, cocos2d::Vec2 targetPosition)
+void GameFigure::moveToScreenPosition(cocos2d::Vec2 targetPosition)
 {
-	setFigureStatus(FigureStatus::normal);
+	//setFigureStatus(FigureStatus::normal);
+	bool deleted = false;
+	if (getFigureStatus() == FigureStatus::deleted)
+		deleted = true;
 
-	setScreenPosition(jumpPosition);
 	auto moveTo = MoveTo::create(2, targetPosition);
 
-	auto endMove = [this]()
+	auto endMove = [this, deleted]()
 	{
+		if(deleted)
+			setFigureStatus(FigureStatus::deleted);
+		else
+			setFigureStatus(FigureStatus::normal);
+
+		//gameMode.checkCombination(getCoordinats());
+		gameMode.endMoveCallback(getCoordinats());
 		gameMode.removeLockFigure();
+		
 	};
 	auto seq = Sequence::create(moveTo, CallFunc::create(endMove), nullptr);
 
 	gameMode.addLockFigure();
+
+	setFigureStatus(FigureStatus::moving);
 	runAction(seq);
 }
 

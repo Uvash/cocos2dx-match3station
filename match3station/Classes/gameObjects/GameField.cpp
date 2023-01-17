@@ -47,7 +47,8 @@ void GameField::replaceFigure(point2i position)
 	cocos2d::Vec2 screenPosition = getScreenPositionFrom2i(fieldPosition);
 	cocos2d::Vec2 spacePosition = { screenPosition.x, screenPosition.y + visibleSize.height };
 
-	content[addres]->jumpAndFall(spacePosition, screenPosition);
+	content[addres]->setScreenPosition(spacePosition);
+	content[addres]->moveToScreenPosition(screenPosition);
 }
 
 void GameField::swapFigure(std::vector<GameFigure*>::iterator firstIt, std::vector<GameFigure*>::iterator secondIt)
@@ -64,10 +65,9 @@ void GameField::swapFigure(std::vector<GameFigure*>::iterator firstIt, std::vect
 	std::iter_swap(firstIt, secondIt); //Поменяли указатели в векторе местами
 
 	(*firstIt)->setCoordinats(fieldPositionForFirst);
-	(*firstIt)->setScreenPosition(screenPositionForFirst);
 
 	(*secondIt)->setCoordinats(fieldPositionForSecond);
-	(*secondIt)->setScreenPosition(screenPositionForSecond);
+
 }
 
 void GameField::swapFigure(point2i first, point2i second)
@@ -77,6 +77,15 @@ void GameField::swapFigure(point2i first, point2i second)
 	swapFigure(firstIt, secondIt);
 }
 
+void GameField::moveToHomeOnScreen(point2i position)
+{
+	if (!checkScopeField(position))
+		return;
+
+	auto positionIt = content.begin() + getFigureAddressFromFieldCoordinats(position);
+	(*positionIt)->moveToScreenPosition(getScreenPositionFrom2i(position));
+
+}
 
 bool GameField::moveIterator(std::vector<GameFigure*>::iterator& iter, size_t offset)
 {
@@ -159,6 +168,10 @@ void GameField::allocField()
 
 bool GameField::checkScopeField(point2i target)
 {
+	if (target.x != std::clamp(target.x, 0, size.x - 1))
+		return false;
+	if (target.y != std::clamp(target.y, 0, size.y - 1))
+		return false;
 	//Не уверен что будет работать быстрее покомпонентного сравнения, но так читаемее
 	size_t adr = getFigureAddressFromFieldCoordinats(target);
 	return checkScopeField(adr);

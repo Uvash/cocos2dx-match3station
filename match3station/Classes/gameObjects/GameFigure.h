@@ -36,7 +36,7 @@ public:
 	const cocos2d::Size& getContentSize() const override;	///< Необходим для корректной работы виджита. Передаёт размер во внутрь движка.
 
 	void setScreenPosition(const cocos2d::Vec2& pos);								///< Устанавливает спрайт в заданных координатах экрана
-	void jumpAndFall(cocos2d::Vec2 jumpPosition, cocos2d::Vec2 targetPosition);		///< Передвигает спрайт в первую позицию и медленно передвигаете во вторую
+	void moveToScreenPosition(cocos2d::Vec2 targetPosition);						///< Передвигает спрайт в нужную позицию
 
 	const point2i& getCoordinats();				///< Возвращает двумерные координаты поля
 	void setCoordinats(const point2i& target);	///< Устанавливает двумерные координаты поля

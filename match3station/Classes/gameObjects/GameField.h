@@ -29,6 +29,7 @@ protected:
 
     void swapFigure(std::vector<GameFigure*>::iterator firstIt, std::vector<GameFigure*>::iterator secondIt); ///< меняет фигуры по итератору
     void swapFigure(point2i first, point2i second); ///< меняет фигуры по двумерным координатам
+    void moveToHomeOnScreen(point2i position); ///< двигает фигуру на заданных координатах, в домашнуюю позицию.
 
 protected:
     bool moveIterator(std::vector<GameFigure*>::iterator& iter, size_t offset); ///< Сдвигает полученный итератор на указанное значение

@@ -69,17 +69,13 @@ void GameMode::clickCallback(GameFigure* figure)
 		return;
 	}
 
+	setNextStatus(GameModeStatus::swap);
+
 	clicked->setFigureStatus(FigureStatus::normal);
 
 	gameField.swapFigure(clicked->getCoordinats(), figure->getCoordinats());
-	clicked->setFigureStatus(FigureStatus::normal);
-	figure->setFigureStatus(FigureStatus::normal);
-	checkCombination(clicked->getCoordinats());
-	checkCombination(figure->getCoordinats());
-
-	updateCollum();
-	replaceDeleted();
-
+	gameField.moveToHomeOnScreen(clicked->getCoordinats());
+	gameField.moveToHomeOnScreen(figure->getCoordinats());
 	clicked = nullptr;
 }
 
@@ -126,6 +122,8 @@ void GameMode::checkCombination(point2i position)
 
 void GameMode::updateCollum()
 {
+	std::vector<point2i> movingFigure; ///< Движение фигур мы запустим когда после всего
+
 	for (std::vector <bool>::iterator iter = collumFlags.begin(); iter != collumFlags.end(); iter++)
 	{
 		if (!(*iter))
@@ -139,7 +137,7 @@ void GameMode::updateCollum()
 		while (true)
 		{
 			auto deletedCandidate = mapIter;
-			if (!gameField.findNextWithCurrentStatus(deletedCandidate, FigureStatus::deleted, gameField.size.w))
+			if (!gameField.findNextWithCurrentStatus(deletedCandidate, FigureStatus::deleted, gameField.size.w))	///< Сдвиг по ширене = +1 наверх
 			{
 				break; 
 			}
@@ -150,26 +148,45 @@ void GameMode::updateCollum()
 			}
 
 			gameField.swapFigure(aliveCandidate, deletedCandidate);
+			movingFigure.push_back((*aliveCandidate)->getCoordinats());
+			///< Удалённую фигурку не двигаем, поскольку её передвижение будет позже
 		}
 
 		*iter = false;
+	}
+
+	if (!movingFigure.empty())
+	{
+		setNextStatus(GameModeStatus::updateCollum);
+		for (auto figure : movingFigure)
+		{
+			gameField.moveToHomeOnScreen(figure);
+		}
 	}
 }
 
 void GameMode::replaceDeleted()
 {
+	setNextStatus(GameModeStatus::replaceDeleted);
+
 	auto func = [this](GameFigure* figure)
 	{
 		if (figure->getFigureStatus() != FigureStatus::deleted)
 			return;
 
-		figure->setFigureStatus(FigureStatus::deleted);
+		figure->setFigureStatus(FigureStatus::normal);
 		figure->setFigureType(getRandomFigureType());
 
 		gameField.replaceFigure(figure->getCoordinats());
 	};
 
 	std::for_each(gameField.content.begin(), gameField.content.end(), func);
+}
+
+void GameMode::endMoveCallback(point2i position)
+{
+	//checkFiguresReqest.insert(position);
+	needCheckFigureSet.insert(position);
 }
 
 FigureType GameMode::getRandomFigureType()
@@ -192,8 +209,11 @@ std::vector<point2i> GameMode::getFigureSameTypeOnTowards(FigureType searchType,
 {
 	std::vector<point2i> result;
 	point2i currentPoint = startPosition + offset;
+
 	while(gameField.checkScopeField(currentPoint))
 	{
+		if (!gameField.checkScopeField(currentPoint))
+			break;
 		if (gameField.getFiureType(currentPoint) != searchType)
 			break;
 
@@ -207,6 +227,16 @@ bool GameMode::init()
 {
 	fillField();
 	return true;
+}
+
+
+void GameMode::setNextStatus(GameModeStatus nextStatus)
+{
+	if (statusList[CURENT_STATUS] == nextStatus)
+		return;
+
+	std::swap(statusList[ CURENT_STATUS ], statusList[PREVIOUS_STATUS]);
+	statusList[ CURENT_STATUS ] = nextStatus;
 }
 
 GameMode* GameMode::create(GameField& field)
@@ -223,4 +253,48 @@ GameMode* GameMode::create(GameField& field)
 		pRect = nullptr;
 		return pRect;
 	}
+}
+
+void GameMode::addLockFigure()
+{
+	lockFigureCount++;
+}
+
+void GameMode::removeLockFigure()
+{
+	lockFigureCount--;
+	if (lockFigureCount <= 0)
+	{
+		switch (statusList[CURENT_STATUS])
+		{
+			case GameModeStatus::swap:	
+			{
+				//if(statusList[PREVIOUS_STATUS] == GameModeStatus::normal)
+				//checkFigureFromSet();
+				break;
+			}
+			case GameModeStatus::replaceDeleted:	
+			{
+				//checkFigureFromSet();
+				break;
+			}
+			case GameModeStatus::updateCollum:
+			{
+				//updateCollum();
+				break;
+			}
+		}
+		checkFigureFromSet();
+		updateCollum();
+		replaceDeleted();
+	}
+}
+
+void GameMode::checkFigureFromSet()
+{
+	for (auto figure : needCheckFigureSet)
+	{
+		checkCombination(figure);
+	}
+	needCheckFigureSet.clear();
 }
