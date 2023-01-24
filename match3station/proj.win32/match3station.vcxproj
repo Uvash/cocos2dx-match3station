@@ -805,6 +805,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\gameObjects\GameConfig.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\HelloWorldScene.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameField.h" />
@@ -813,6 +814,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\HelpStructures.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\proj.win32\main.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\proj.win32\resource.h" />
+    <ClCompile Include="..\Classes\gameObjects\GameConfig.cpp" />
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.cpp" />
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameField.cpp" />

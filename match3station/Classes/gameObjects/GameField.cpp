@@ -1,13 +1,18 @@
 #include "GameField.h"
 #include "GameFigure.h"
+#include "GameConfig.h"
 #include <algorithm>
 #include <functional>
 
 USING_NS_CC;
 
-GameField::GameField()
+GameField::GameField() : gameConfig{ gameConfig.getInstance() }
 {
+	screenSize = Director::getInstance()->getVisibleSize();
+	screenSize.height *= gameConfig.gameFieldHeight;
+	screenSize.width *= gameConfig.gameFieldWidth;
 
+	cocos2d::Size offsetPerNode{ screenSize.width / (size.w + 1), screenSize.height / (size.h + 1) };
 }
 GameField::~GameField()
 {
@@ -142,11 +147,13 @@ void GameField::addFigure(GameFigure* pfigure, std::vector<GameFigure*>::iterato
 
 	point2i fieldPosition = getFieldCoordinatsFromFigureAddress(addres);
 	cocos2d::Vec2 screenPositionForFirst = getScreenPositionFrom2i(fieldPosition);
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-	float scaleX = visibleSize.width / 480;
-	float scaleY = visibleSize.height / 320;
+	//cocos2d::Size offsetPerNode{ screenSize.width / (size.w + 1), screenSize.height / (size.h + 1) };
+	//auto visibleSize = Director::getInstance()->getVisibleSize();
+	
+	float scaleX = screenSize.width / 480;
+	float scaleY = screenSize.height / 320;
 	float scale;
-	if (scaleX > scaleY)
+	if (scaleX < scaleY)
 	{
 		scale = scaleX;
 	}
@@ -215,7 +222,6 @@ FigureType GameField::getFiureType(point2i address, point2i offset)
 
 cocos2d::Vec2 GameField::getScreenPositionFrom2i(point2i target)
 {
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-	Size offsetPerNode{ visibleSize.width / (size.w + 1), visibleSize.height / (size.h + 1) };
+	cocos2d::Size offsetPerNode{ screenSize.width / (size.w + 1), screenSize.height / (size.h + 1) };
 	return { offsetPerNode.width * (target.w + 1), offsetPerNode.height * (target.h + 1)};
 }

@@ -22,6 +22,9 @@
     <ClCompile Include="D:\CPP\games\match3station\match3station\cocos2d\cocos\precheader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\gameObjects\GameConfig.cpp">
+      <Filter>Source Files\Classes\gameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.h">
@@ -71,6 +74,9 @@
     </ClInclude>
     <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\uvash.png">
       <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\gameObjects\GameConfig.h">
+      <Filter>Source Files\Classes\gameObjects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

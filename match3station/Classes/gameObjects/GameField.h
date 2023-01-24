@@ -12,8 +12,11 @@
 
 class GameFigure;
 class GameMode;
+class GameConfig;
+
 enum class FigureType;
 enum class FigureStatus;
+
 class GameField: public cocos2d::Node
 {
     friend GameMode;
@@ -23,8 +26,8 @@ public:
     GameFigure* getFigureFromField(point2i target); ///< Получить указатель фигуры по двумерным координатам
     void replaceFigure(point2i position);   ///< Заменяет фигурку на случайную и воспроизводит её падение сверху
 protected:
+    cocos2d::Size screenSize;   ///< Размеры поля от экрана
     point2i size = {5, 5 }; ///< Размер поля
-    int spriteSize = 64;    ///< Размер спрайта
     std::vector<GameFigure*> content;   ///< Вектор для хранения указателей
 
     void swapFigure(std::vector<GameFigure*>::iterator firstIt, std::vector<GameFigure*>::iterator secondIt); ///< меняет фигуры по итератору
@@ -50,6 +53,8 @@ public:
     inline int getFigureAddressFromFieldCoordinats(point2i target); ///< Преобразует двумерные координаты поля в одномерные 
     inline point2i getFieldCoordinatsFromFigureAddress(int address);///< Преобразует одномерные координаты поля в двумерные 
     FigureType getFiureType(point2i address, point2i offset = {0, 0}); ///< Возвращает тип фигуры по двумерным координатам
+protected:
+    GameConfig& gameConfig;
 public:
     GameField();
     ~GameField() override;
