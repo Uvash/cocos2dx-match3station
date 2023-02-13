@@ -25,6 +25,7 @@
 #include "HelloWorldScene.h"
 #include "gameObjects\GameField.h"
 #include "gameObjects\GameMode.h"
+#include "uiObjects\gameUi.h"
 
 USING_NS_CC;
 
@@ -125,9 +126,13 @@ bool HelloWorld::init()
 
     gameField = GameField::create();
     addChild(gameField);
+    
+    gameUi = GameUi::create();
+    addChild(gameUi);
 
-   gameMode = GameMode::create(*gameField);
-   addChild(gameMode);
+    gameMode = GameMode::create(*gameField, *gameUi);
+    addChild(gameMode);
+
     return true;
 }
 

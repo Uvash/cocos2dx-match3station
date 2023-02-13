@@ -25,6 +25,9 @@
     <ClCompile Include="..\Classes\gameObjects\GameConfig.cpp">
       <Filter>Source Files\Classes\gameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\uiObjects\gameUi.cpp">
+      <Filter>Source Files\Classes\UiObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.h">
@@ -78,6 +81,9 @@
     <ClInclude Include="..\Classes\gameObjects\GameConfig.h">
       <Filter>Source Files\Classes\gameObjects</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\uiObjects\gameUi.h">
+      <Filter>Source Files\Classes\UiObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\CPP\games\match3station\match3station\CMakeLists.txt" />
@@ -108,6 +114,9 @@
     </Filter>
     <Filter Include="Source Files\proj.win32">
       <UniqueIdentifier>{40CD843A-18DE-36DD-A79B-8C536F9960C3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\UiObjects">
+      <UniqueIdentifier>{8933aeb0-aaeb-4277-9e40-7ed6e09df38e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

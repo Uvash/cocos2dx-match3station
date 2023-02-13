@@ -33,6 +33,7 @@
 
 class GameField;
 class GameMode;
+class GameUi;
 
 /**
     \brief основная игровая сцена
@@ -55,5 +56,6 @@ protected:
 
     GameField* gameField;   ///< Элемент сцены - игровое поле для игры 3 в ряд
     GameMode* gameMode;     ///< Элемент сцены - режим игры для игры 3 в ряд
+    GameUi* gameUi;         ///< Элемент сцены - отображает интерфейс игры
 };
 ///@}

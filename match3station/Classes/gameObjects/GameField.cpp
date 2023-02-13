@@ -9,8 +9,8 @@ USING_NS_CC;
 GameField::GameField() : gameConfig{ gameConfig.getInstance() }
 {
 	screenSize = Director::getInstance()->getVisibleSize();
-	screenSize.height *= gameConfig.gameFieldHeight;
-	screenSize.width *= gameConfig.gameFieldWidth;
+	screenSize.height = gameConfig.sizeGameField.height * screenSize.height + gameConfig.offsetForGameField.height * screenSize.height;
+	screenSize.width = gameConfig.sizeGameField.width * screenSize.width + gameConfig.offsetForGameField.width * screenSize.width;
 
 	cocos2d::Size offsetPerNode{ screenSize.width / (size.w + 1), screenSize.height / (size.h + 1) };
 }

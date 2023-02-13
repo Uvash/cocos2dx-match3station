@@ -1,12 +1,14 @@
 #include "GameMode.h"
 #include "GameFigure.h"
 #include "GameField.h"
+
+#include "../uiObjects/gameUi.h"
 #include <random>
 #include <stdexcept>
 
 
 
-GameMode::GameMode(GameField& gField) : gameField{ gField }
+GameMode::GameMode(GameField& field, GameUi& ui) : gameField{ field }, gameUi{ ui }
 {
 	collumFlags.resize(gameField.size.w, false);
 }
@@ -94,7 +96,7 @@ void GameMode::checkCombination(point2i position)
 	downCollum.reserve(downCollum.size() + upCollum.size());
 	downCollum.insert(downCollum.end(), upCollum.begin(), upCollum.end());
 
-	bool needProcessStart = true;
+	bool needProcessStart = true;	//Нужно ли обработать центральную фигурку
 	auto processFunction = [this](point2i& target)
 	{
 		auto figure = this->gameField.getFigureFromField(target);
@@ -102,12 +104,13 @@ void GameMode::checkCombination(point2i position)
 		figure->setFigureStatus(FigureStatus::deleted);
 	};
 
-	// +1 ����� ��� ����� ������� ���������� �����
+	// +1 поскольку мы не учитывали стартовую точку
 	if (leftRow.size() + 1 >= rowRequestToCombination)
 	{
-		needProcessStart = false;
+		needProcessStart = false; //Закидываем центральную фигурку в обработку на удаление
 		leftRow.push_back(position);
 		std::for_each(leftRow.begin(), leftRow.end(), processFunction);
+		calculateScore(targetType, leftRow.size() + 1);
 	}
 
 	if (downCollum.size() + 1 >= rowRequestToCombination)
@@ -115,6 +118,7 @@ void GameMode::checkCombination(point2i position)
 		if(needProcessStart)
 			downCollum.push_back(position);
 		std::for_each(downCollum.begin(), downCollum.end(), processFunction);
+		calculateScore(targetType, leftRow.size() + 1);
 	}
 }
 
@@ -218,6 +222,40 @@ std::vector<point2i> GameMode::getFigureSameTypeOnTowards(FigureType searchType,
 	return result;
 }
 
+void GameMode::calculateScore(FigureType figureType, int figureCount)
+{
+	int scoreCount = figureCount * (5.0f * (figureCount + 1));	///< здесь используем арифмитическую прогрессию
+	switch (figureType)
+	{
+		case(FigureType::CMO)	: {score.addCrewHealth(figureCount); break; }
+		case(FigureType::CE)	: {score.addHullCondition(figureCount); break; }
+		case(FigureType::HOS)	: {score.addOrder(figureCount); break; }
+	}
+	score.score += scoreCount;
+}
+
+void GameMode::generateEvents()
+{
+	std::random_device rd;
+	std::mt19937 gen(rd());
+
+	std::uniform_int_distribution<> typeDist(0, (int)(FigureType::maxFigure)-1);
+	std::uniform_int_distribution<> criticalFailDistr(0, 9);
+	std::uniform_int_distribution<> damageDistr(0, 10);
+
+	int damage = -1 * damageDistr(gen);
+	if (criticalFailDistr(gen) == 0)
+		damage *= 2;
+
+	FigureType choosen;
+	switch (typeDist(gen))
+	{
+		case((int)FigureType::CMO):	{score.addCrewHealth(damage); break; }
+		case((int)FigureType::CE):	{score.addHullCondition(damage); break; }
+		case((int)FigureType::HOS):	{score.addOrder(damage); break; }
+	}
+}
+
 bool GameMode::init()
 {
 	fillField();
@@ -225,9 +263,9 @@ bool GameMode::init()
 }
 
 
-GameMode* GameMode::create(GameField& field)
+GameMode* GameMode::create(GameField& field, GameUi& ui)
 {
-	GameMode* pRect = new(std::nothrow) GameMode(field);
+	GameMode* pRect = new(std::nothrow) GameMode(field, ui);
 	if (pRect && pRect->init())
 	{
 		pRect->autorelease();
@@ -254,6 +292,8 @@ void GameMode::removeLockFigure()
 		checkFigureFromSet();
 		updateCollum();
 		replaceDeleted();
+		generateEvents();
+		gameUi.updateGameUi(score);
 	}
 }
 
