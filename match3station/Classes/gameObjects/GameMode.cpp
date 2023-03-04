@@ -3,8 +3,10 @@
 #include "GameField.h"
 
 #include "../uiObjects/gameUi.h"
+#include "editor-support/cocostudio/SimpleAudioEngine.h"
 #include <random>
 #include <stdexcept>
+#include "GameConfig.h"
 
 
 
@@ -59,6 +61,7 @@ void GameMode::clickCallback(GameFigure* figure)
 
 	if (clicked == nullptr)
 	{
+		playSoundEffect("sounds/FX01.mp3");
 		clicked = figure;
 		clicked->setFigureStatus(FigureStatus::choosen);
 		return;
@@ -66,13 +69,13 @@ void GameMode::clickCallback(GameFigure* figure)
 
 	if (clicked == figure)
 	{
+		playSoundEffect("sounds/Downer01.mp3");
 		clicked->setFigureStatus(FigureStatus::normal);
 		clicked = nullptr;
 		return;
 	}
 
-	clicked->setFigureStatus(FigureStatus::normal);
-
+	playSoundEffect("sounds/Rise02.mp3");
 	gameField.swapFigure(clicked->getCoordinats(), figure->getCoordinats());
 	gameField.moveToHomeOnScreen(clicked->getCoordinats());
 	gameField.moveToHomeOnScreen(figure->getCoordinats());
@@ -108,17 +111,21 @@ void GameMode::checkCombination(point2i position)
 	if (leftRow.size() + 1 >= rowRequestToCombination)
 	{
 		needProcessStart = false; //Закидываем центральную фигурку в обработку на удаление
+		playSoundEffect("sounds/Rise03.mp3");
 		leftRow.push_back(position);
 		std::for_each(leftRow.begin(), leftRow.end(), processFunction);
-		calculateScore(targetType, leftRow.size() + 1);
+		calculateScore(targetType, leftRow.size());
 	}
 
 	if (downCollum.size() + 1 >= rowRequestToCombination)
 	{
-		if(needProcessStart)
+		if (needProcessStart)
+		{
 			downCollum.push_back(position);
+			playSoundEffect("sounds/Rise03.mp3");
+		}		
 		std::for_each(downCollum.begin(), downCollum.end(), processFunction);
-		calculateScore(targetType, leftRow.size() + 1);
+		calculateScore(targetType, downCollum.size());
 	}
 }
 
@@ -197,9 +204,9 @@ FigureType GameMode::getRandomFigureType()
 	FigureType choosen;
 	switch (dist(gen))
 	{
-		case(0): {choosen = FigureType::CMO; break; }
-		case(1): {choosen = FigureType::CE; break; }
-		case(2): {choosen = FigureType::HOS; break; }
+		case((int)FigureType::CMO): {choosen = FigureType::CMO; break; }
+		case((int)FigureType::CE): {choosen = FigureType::CE; break; }
+		case((int)FigureType::HOS): {choosen = FigureType::HOS; break; }
 	}
 	return choosen;
 }
@@ -277,6 +284,13 @@ GameMode* GameMode::create(GameField& field, GameUi& ui)
 		pRect = nullptr;
 		return pRect;
 	}
+}
+
+void GameMode::playSoundEffect(const char* fileName)
+{
+	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	GameConfig* config = &GameConfig::getInstance();
+	audio->playEffect(fileName, false, 1.0f, 1.0f, config->effectVolume);
 }
 
 void GameMode::addLockFigure()

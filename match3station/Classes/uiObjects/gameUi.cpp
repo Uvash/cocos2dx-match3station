@@ -88,7 +88,7 @@ GameUi::GameUi()
 	crewHealthBar->setPosition({ newPosition.x + possibleBarSize.x * 2.0f, newPosition.y });
 	orderBar->setPosition({ newPosition.x + possibleBarSize.x * 3.0f, newPosition.y });
 
-	scoreText = ui::Text::create({ "000000" }, { "Arial" }, 20.0);
+	scoreText = ui::Text::create({ "000000" }, { "XO_Oriel_Nu.ttf" }, 20.0);
 	newPosition = { screenSize.width * 0.75f + screenSize.width * (0.25f / 2.0f), screenSize.height * 0.45f };
 	scoreText->setPosition(newPosition);
 	addChild(scoreText);

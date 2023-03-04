@@ -15,6 +15,8 @@ public:
 
     const cocos2d::Size offsetForScoresField = { 0.75, 0 }; ///< Смещение по X Y для поля очков от размеров экрана
     const cocos2d::Size sizeScoresField = { 0.25, 1.0 };    ///< Размеры поля очков относительно размеров экрана
+
+    const float effectVolume = 1.0; ///< Громкость звука эффектов
 public:
     static GameConfig& getInstance()
     {

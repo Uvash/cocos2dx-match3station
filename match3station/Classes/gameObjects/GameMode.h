@@ -42,6 +42,8 @@ protected:
 	//int collumRequestToCombination = 3;		///< Кол-во фигурок необходимое в столбец
 
 	std::vector <bool> collumFlags;			///< Вспомогательный вектор, для хранения флагов столбцов, отмечающих необходимость их обновления
+protected:
+	void playSoundEffect(const char* fileName);	///< Проигрывает звуковой файл формат mp3
 
 public:
 	GameMode(GameField& field, GameUi& ui);
