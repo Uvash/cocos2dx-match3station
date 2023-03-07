@@ -58,5 +58,8 @@ protected:
 	int lockFigureCount = 0;	///< Костыль для подсчёта фигур которые двигаются
 	std::set<point2i> needCheckFigureSet; ///< Дерево, для хранения координат фигур которые нужно проверить
 	void checkFigureFromSet();		///< Проверить все фигуры в дереве
+
+	void endGame();	///< Вызывается по завершению игры
+	void checkScore(); ///< Проверяет кол-во очков
 };
 ///@}

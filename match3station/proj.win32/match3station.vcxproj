@@ -806,6 +806,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\gameObjects\GameConfig.h" />
+    <ClInclude Include="..\Classes\uiObjects\EndGameUi.h" />
     <ClInclude Include="..\Classes\uiObjects\gameUi.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\HelloWorldScene.h" />
@@ -816,6 +817,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\CPP\games\match3station\match3station\proj.win32\main.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\proj.win32\resource.h" />
     <ClCompile Include="..\Classes\gameObjects\GameConfig.cpp" />
+    <ClCompile Include="..\Classes\uiObjects\EndGameUi.cpp" />
     <ClCompile Include="..\Classes\uiObjects\gameUi.cpp" />
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.cpp" />
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\HelloWorldScene.cpp" />

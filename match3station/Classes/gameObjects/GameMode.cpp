@@ -7,6 +7,7 @@
 #include <random>
 #include <stdexcept>
 #include "GameConfig.h"
+#include "uiObjects/EndGameUi.h"
 
 
 
@@ -307,6 +308,7 @@ void GameMode::removeLockFigure()
 		updateCollum();
 		replaceDeleted();
 		generateEvents();
+		checkScore();
 		gameUi.updateGameUi(score);
 	}
 }
@@ -318,4 +320,23 @@ void GameMode::checkFigureFromSet()
 		checkCombination(figure);
 	}
 	needCheckFigureSet.clear();
+}
+
+void GameMode::endGame()
+{
+	auto endGame = EndGameUi::create();
+	addChild(endGame);
+}
+
+void GameMode::checkScore()
+{
+	if	(
+			score.crewHealth <= 0 ||
+			score.hullCondition <= 0 ||
+			score.order <= 0
+		)
+	{
+		addLockFigure();
+		endGame();
+	}
 }

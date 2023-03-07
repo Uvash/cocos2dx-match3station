@@ -15,15 +15,9 @@
     <key>spriteSourceSize</key>
     <string>{64,64}</string>
     <key>textureRect</key>
-    <string>{{128,192},{64,64}}</string>
+    <string>{{134,200},{64,64}}</string>
     <key>textureRotated</key>
     <false/>
-    <key>triangles</key>
-    <string>0 1 2 0 3 1</string>
-    <key>vertices</key>
-    <string>0 64 64 0 64 64 0 0</string>
-    <key>verticesUV</key>
-    <string>128 256 192 192 192 256 128 192</string>
    </dict>
    <key>./Uvash_CMO</key>
    <dict>
@@ -36,15 +30,9 @@
     <key>spriteSourceSize</key>
     <string>{64,64}</string>
     <key>textureRect</key>
-    <string>{{0,192},{64,64}}</string>
+    <string>{{2,200},{64,64}}</string>
     <key>textureRotated</key>
     <false/>
-    <key>triangles</key>
-    <string>0 1 2 0 3 1</string>
-    <key>vertices</key>
-    <string>0 64 64 0 64 64 0 0</string>
-    <key>verticesUV</key>
-    <string>0 256 64 192 64 256 0 192</string>
    </dict>
    <key>./Uvash_HoS</key>
    <dict>
@@ -57,15 +45,9 @@
     <key>spriteSourceSize</key>
     <string>{64,64}</string>
     <key>textureRect</key>
-    <string>{{64,192},{64,64}}</string>
+    <string>{{68,200},{64,64}}</string>
     <key>textureRotated</key>
     <false/>
-    <key>triangles</key>
-    <string>0 1 2 0 3 1</string>
-    <key>vertices</key>
-    <string>0 64 64 0 64 64 0 0</string>
-    <key>verticesUV</key>
-    <string>64 256 128 192 128 256 64 192</string>
    </dict>
    <key>./barEng</key>
    <dict>
@@ -78,15 +60,9 @@
     <key>spriteSourceSize</key>
     <string>{256,64}</string>
     <key>textureRect</key>
-    <string>{{0,0},{256,64}}</string>
+    <string>{{2,2},{256,64}}</string>
     <key>textureRotated</key>
     <false/>
-    <key>triangles</key>
-    <string>0 1 2 0 3 1</string>
-    <key>vertices</key>
-    <string>0 64 256 0 256 64 0 0</string>
-    <key>verticesUV</key>
-    <string>0 64 256 0 256 64 0 0</string>
    </dict>
    <key>./barMed</key>
    <dict>
@@ -99,15 +75,9 @@
     <key>spriteSourceSize</key>
     <string>{256,64}</string>
     <key>textureRect</key>
-    <string>{{0,64},{256,64}}</string>
+    <string>{{2,68},{256,64}}</string>
     <key>textureRotated</key>
     <false/>
-    <key>triangles</key>
-    <string>0 1 2 0 3 1</string>
-    <key>vertices</key>
-    <string>0 64 256 0 256 64 0 0</string>
-    <key>verticesUV</key>
-    <string>0 128 256 64 256 128 0 64</string>
    </dict>
    <key>./barSec</key>
    <dict>
@@ -120,15 +90,39 @@
     <key>spriteSourceSize</key>
     <string>{256,64}</string>
     <key>textureRect</key>
-    <string>{{0,128},{256,64}}</string>
+    <string>{{2,134},{256,64}}</string>
     <key>textureRotated</key>
     <false/>
-    <key>triangles</key>
-    <string>0 1 2 0 3 1</string>
-    <key>vertices</key>
-    <string>0 64 256 0 256 64 0 0</string>
-    <key>verticesUV</key>
-    <string>0 192 256 128 256 192 0 128</string>
+   </dict>
+   <key>./exit</key>
+   <dict>
+    <key>aliases</key>
+    <array/>
+    <key>spriteOffset</key>
+    <string>{0,0}</string>
+    <key>spriteSize</key>
+    <string>{32,32}</string>
+    <key>spriteSourceSize</key>
+    <string>{32,32}</string>
+    <key>textureRect</key>
+    <string>{{200,200},{32,32}}</string>
+    <key>textureRotated</key>
+    <false/>
+   </dict>
+   <key>./reset</key>
+   <dict>
+    <key>aliases</key>
+    <array/>
+    <key>spriteOffset</key>
+    <string>{0,0}</string>
+    <key>spriteSize</key>
+    <string>{32,32}</string>
+    <key>spriteSourceSize</key>
+    <string>{32,32}</string>
+    <key>textureRect</key>
+    <string>{{200,234},{32,32}}</string>
+    <key>textureRotated</key>
+    <false/>
    </dict>
   </dict>
   <key>metadata</key>
@@ -136,7 +130,7 @@
    <key>format</key>
    <integer>3</integer>
    <key>size</key>
-   <string>{256,256}</string>
+   <string>{262,270}</string>
    <key>textureFileName</key>
    <string>uvash.png</string>
   </dict>
