@@ -121,6 +121,17 @@ bool HelloWorld::init()
         this->addChild(sprite, 0);
     }
     */
+    auto sprite = Sprite::create("SpaceBackGround_by_Rawdanitsu/image6.jpg");
+    if (sprite == nullptr)
+    {
+        throw std::runtime_error("failed to loas SpaceBackGround_by_Rawdanitsu/image6.jpg");
+    }
+    // position the sprite on the center of the screen
+    sprite->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+
+    // add the sprite as a child to this layer
+    this->addChild(sprite, 0);
+
 
     loadSprites();
 

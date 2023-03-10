@@ -4,6 +4,36 @@
  <dict>
   <key>frames</key>
   <dict>
+   <key>./MenuButton</key>
+   <dict>
+    <key>aliases</key>
+    <array/>
+    <key>spriteOffset</key>
+    <string>{0,0}</string>
+    <key>spriteSize</key>
+    <string>{320,64}</string>
+    <key>spriteSourceSize</key>
+    <string>{320,64}</string>
+    <key>textureRect</key>
+    <string>{{2,2},{320,64}}</string>
+    <key>textureRotated</key>
+    <false/>
+   </dict>
+   <key>./MenuButtonSelected</key>
+   <dict>
+    <key>aliases</key>
+    <array/>
+    <key>spriteOffset</key>
+    <string>{0,0}</string>
+    <key>spriteSize</key>
+    <string>{320,64}</string>
+    <key>spriteSourceSize</key>
+    <string>{320,64}</string>
+    <key>textureRect</key>
+    <string>{{2,68},{320,64}}</string>
+    <key>textureRotated</key>
+    <false/>
+   </dict>
    <key>./Uvash_CE</key>
    <dict>
     <key>aliases</key>
@@ -15,7 +45,7 @@
     <key>spriteSourceSize</key>
     <string>{64,64}</string>
     <key>textureRect</key>
-    <string>{{134,200},{64,64}}</string>
+    <string>{{260,266},{64,64}}</string>
     <key>textureRotated</key>
     <false/>
    </dict>
@@ -30,7 +60,7 @@
     <key>spriteSourceSize</key>
     <string>{64,64}</string>
     <key>textureRect</key>
-    <string>{{2,200},{64,64}}</string>
+    <string>{{260,134},{64,64}}</string>
     <key>textureRotated</key>
     <false/>
    </dict>
@@ -45,7 +75,7 @@
     <key>spriteSourceSize</key>
     <string>{64,64}</string>
     <key>textureRect</key>
-    <string>{{68,200},{64,64}}</string>
+    <string>{{260,200},{64,64}}</string>
     <key>textureRotated</key>
     <false/>
    </dict>
@@ -60,7 +90,7 @@
     <key>spriteSourceSize</key>
     <string>{256,64}</string>
     <key>textureRect</key>
-    <string>{{2,2},{256,64}}</string>
+    <string>{{2,134},{256,64}}</string>
     <key>textureRotated</key>
     <false/>
    </dict>
@@ -75,7 +105,7 @@
     <key>spriteSourceSize</key>
     <string>{256,64}</string>
     <key>textureRect</key>
-    <string>{{2,68},{256,64}}</string>
+    <string>{{2,200},{256,64}}</string>
     <key>textureRotated</key>
     <false/>
    </dict>
@@ -90,7 +120,7 @@
     <key>spriteSourceSize</key>
     <string>{256,64}</string>
     <key>textureRect</key>
-    <string>{{2,134},{256,64}}</string>
+    <string>{{2,266},{256,64}}</string>
     <key>textureRotated</key>
     <false/>
    </dict>
@@ -105,7 +135,7 @@
     <key>spriteSourceSize</key>
     <string>{32,32}</string>
     <key>textureRect</key>
-    <string>{{200,200},{32,32}}</string>
+    <string>{{324,2},{32,32}}</string>
     <key>textureRotated</key>
     <false/>
    </dict>
@@ -120,7 +150,7 @@
     <key>spriteSourceSize</key>
     <string>{32,32}</string>
     <key>textureRect</key>
-    <string>{{200,234},{32,32}}</string>
+    <string>{{324,36},{32,32}}</string>
     <key>textureRotated</key>
     <false/>
    </dict>
@@ -130,7 +160,7 @@
    <key>format</key>
    <integer>3</integer>
    <key>size</key>
-   <string>{262,270}</string>
+   <string>{360,334}</string>
    <key>textureFileName</key>
    <string>uvash.png</string>
   </dict>

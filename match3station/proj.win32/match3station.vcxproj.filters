@@ -31,6 +31,9 @@
     <ClCompile Include="..\Classes\uiObjects\EndGameUi.cpp">
       <Filter>Source Files\Classes\UiObjects</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\MenuScene.cpp">
+      <Filter>Source Files\Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.h">
@@ -89,6 +92,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\uiObjects\EndGameUi.h">
       <Filter>Source Files\Classes\UiObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MenuScene.h">
+      <Filter>Source Files\Classes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

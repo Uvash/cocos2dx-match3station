@@ -249,7 +249,7 @@ void GameMode::generateEvents()
 
 	std::uniform_int_distribution<> typeDist(0, (int)(FigureType::maxFigure)-1);
 	std::uniform_int_distribution<> criticalFailDistr(0, 9);
-	std::uniform_int_distribution<> damageDistr(0, 10);
+	std::uniform_int_distribution<> damageDistr(0, 15);
 
 	int damage = -1 * damageDistr(gen);
 	if (criticalFailDistr(gen) == 0)
