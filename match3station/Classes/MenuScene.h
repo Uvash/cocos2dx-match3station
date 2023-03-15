@@ -1,6 +1,6 @@
 /**
 	\addtogroup match3station
-	\brief Класс Сцена Меню. Создаёт сцену с меню
+	\brief Класс Сцена Меню. Создаёт сцену главного меню
 */
 ///@{
 #pragma once
@@ -14,13 +14,24 @@ public:
 
     virtual bool init();
 
-    // a selector callback
+    /**
+    \brief Каллбэк на закрытиые игры. 
+    \param[in] pSender Указатель, на того кто вызвал
+     **/
     void menuCloseCallback(cocos2d::Ref* pSender);
+
+    /**
+    \brief Каллбэк на запуск MainScene
+    \param[in] pSender Указатель, на того кто вызвал
+     **/
     void playCallback(cocos2d::Ref* pSender);
 
     // implement the "static create()" method manually
     CREATE_FUNC(MenuScene);    ///< добавляем static create() для дерева сцены
 protected:
+    /**
+    \brief Загружает спрайты в кэш
+     **/
     void loadSprites();     ///< Вспомогательная функция для загрузки листа спрайтов
 };
 ///@}

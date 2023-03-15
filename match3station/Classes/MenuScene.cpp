@@ -1,5 +1,5 @@
 #include "MenuScene.h"
-#include "HelloWorldScene.h"
+#include "MainScene.h"
 #include "ui/CocosGUI.h"
 
 USING_NS_CC;
@@ -119,7 +119,7 @@ void MenuScene::menuCloseCallback(Ref* pSender)
 
 void MenuScene::playCallback(cocos2d::Ref* pSender)
 {
-    auto newScene = HelloWorld::createScene();
+    auto newScene = MainScene::createScene();
     Director::getInstance()->replaceScene(newScene);
 }
 

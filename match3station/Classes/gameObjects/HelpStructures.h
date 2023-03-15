@@ -1,6 +1,14 @@
+/**
+	\addtogroup match3station
+**/
+///@{
+
 #pragma once
 #include <algorithm>
 
+/**
+	\brief Структура самопальной двумерной точки
+**/
 struct point2i
 {
 	union { int x, w; };
@@ -45,16 +53,17 @@ struct point2i
 		return normaA < normaB;
 	}
 };
+
 /**
-* структура gameScore - хранит "состояние" станции и количество очков
+	\brief Структура gameScore хранит "состояние" станции и количество очков
 **/
 
 struct gameScore
 {
-	float hullCondition = 100.0f;
-	float crewHealth = 100.0f;
-	float order = 100.0f;
-	int score = 0;
+	float hullCondition = 100.0f;	///< Состояние корпуса
+	float crewHealth = 100.0f;	///< Состояние здоровья экипажа
+	float order = 100.0f;	///< Состояние порядка среди экипажа
+	int score = 0;	///< Количество очков
 
 	inline void setHullCondition(float newValue) { hullCondition = std::clamp(newValue, 0.0f, 100.0f); }
 	inline void setCrewHealth(float newValue) { crewHealth = std::clamp(newValue, 0.0f, 100.0f); }
@@ -65,3 +74,4 @@ struct gameScore
 	inline void addOrder(float newValue) { order = std::clamp(newValue + order, 0.0f, 100.0f); }
 
 };
+///@}

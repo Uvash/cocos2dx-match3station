@@ -23,9 +23,7 @@ GameField::~GameField()
 
 bool GameField::init()
 {
-
 	allocField();
-
 	return true;
 }
 
@@ -214,7 +212,6 @@ FigureType GameField::getFiureType(point2i address, point2i offset)
 	{
 		GameFigure* figure = content[addres];
 		return figure->getFigureType();
-		return FigureType::CE;
 	}
 
 	return FigureType::maxFigure;

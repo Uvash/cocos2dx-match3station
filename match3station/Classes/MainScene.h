@@ -37,22 +37,28 @@ class GameUi;
 
 /**
     \brief основная игровая сцена
-    К данной сцене мы будем привязывать все виджеты. Сгенерирован кокосом при создании проекта.
+    К данной сцене мы будем привязывать виджеты. Сгенерирован кокосом при создании проекта.
 */
-class HelloWorld : public cocos2d::Scene
+class MainScene : public cocos2d::Scene
 {
 public:
     static cocos2d::Scene* createScene();
 
     virtual bool init();
     
-    // a selector callback
+    /**
+    \brief Каллбэк на закрытиые игры. Сгенерирован автоматически при созданнии проекта
+    \param[in] pSender Указатель, на того кто вызвал
+     **/
     void menuCloseCallback(cocos2d::Ref* pSender);
     
     // implement the "static create()" method manually
-    CREATE_FUNC(HelloWorld);    ///< добавляем static create() для дерева сцены
+    CREATE_FUNC(MainScene);    ///< добавляем static create() для дерева сцены
 protected:
-    void loadSprites();     ///< Вспомогательная функция для загрузки листа спрайтов
+    /**
+    \brief Загружает спрайты в кэш
+     **/
+    void loadSprites();
 
     GameField* gameField;   ///< Элемент сцены - игровое поле для игры 3 в ряд
     GameMode* gameMode;     ///< Элемент сцены - режим игры для игры 3 в ряд

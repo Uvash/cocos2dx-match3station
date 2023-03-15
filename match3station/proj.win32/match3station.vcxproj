@@ -810,7 +810,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\Classes\uiObjects\EndGameUi.h" />
     <ClInclude Include="..\Classes\uiObjects\gameUi.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.h" />
-    <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\MainScene.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameField.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameFigure.h" />
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameMode.h" />
@@ -822,7 +822,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\Classes\uiObjects\EndGameUi.cpp" />
     <ClCompile Include="..\Classes\uiObjects\gameUi.cpp" />
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.cpp" />
-    <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\MainScene.cpp" />
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameField.cpp" />
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameFigure.cpp" />
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameMode.cpp" />

@@ -1,7 +1,9 @@
 #pragma once
 /**
 	\addtogroup match3station
-	\brief  ласс GameCongig хранит настройки необходимые дл€ игры. ќбхедин€ютс€ в кучу, дл€ того что бы в будущем читать из файла
+	\brief  ласс GameCongig хранит настройки необходимые дл€ игры.
+    
+    \details ’ранит разнообразные данные вместе. ѕо идее должен хранить и читать их из файла, но пока залит бетоном из констант
 */
 ///@{
 #pragma once
@@ -18,13 +20,17 @@ public:
 
     const float effectVolume = 1.0; ///< √ромкость звука эффектов
 public:
+    /**
+    * \brief ‘ункци€ реализующа€ паттерн одиночка
+    * \return Ёкземпл€р класса GameConfig
+    **/
     static GameConfig& getInstance()
     {
         static GameConfig   instance; 
         return instance;
     }
 private:
-    GameConfig() {}
+    GameConfig() = default;
 public:
     GameConfig(GameConfig const&) = delete;
     void operator=(GameConfig const&) = delete;

@@ -4,7 +4,7 @@
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.cpp">
       <Filter>Source Files\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\HelloWorldScene.cpp">
+    <ClCompile Include="..\Classes\MainScene.cpp">
       <Filter>Source Files\Classes</Filter>
     </ClCompile>
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameField.cpp">
@@ -39,7 +39,7 @@
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.h">
       <Filter>Source Files\Classes</Filter>
     </ClInclude>
-    <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\HelloWorldScene.h">
+    <ClInclude Include="..\Classes\MainScene.h">
       <Filter>Source Files\Classes</Filter>
     </ClInclude>
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameField.h">

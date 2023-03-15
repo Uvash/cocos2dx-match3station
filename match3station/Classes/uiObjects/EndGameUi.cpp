@@ -1,7 +1,7 @@
 #include "EndGameUi.h"
 
 #include "gameUi.h"
-#include "HelloWorldScene.h"
+#include "MainScene.h"
 USING_NS_CC;
 
 EndGameUi::EndGameUi()
@@ -37,7 +37,7 @@ EndGameUi::~EndGameUi()
 
 void EndGameUi::resetButtonCallback(Ref* pSender)
 {
-    auto newScene = HelloWorld::createScene();
+    auto newScene = MainScene::createScene();
     Director::getInstance()->replaceScene(newScene);
 
 }
