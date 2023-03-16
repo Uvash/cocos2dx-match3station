@@ -1,11 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.cpp">
       <Filter>Source Files\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\MainScene.cpp">
+    <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\MainScene.cpp">
       <Filter>Source Files\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\MenuScene.cpp">
+      <Filter>Source Files\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameConfig.cpp">
+      <Filter>Source Files\Classes\gameObjects</Filter>
     </ClCompile>
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameField.cpp">
       <Filter>Source Files\Classes\gameObjects</Filter>
@@ -16,31 +22,31 @@
     <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameMode.cpp">
       <Filter>Source Files\Classes\gameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\uiObjects\EndGameUi.cpp">
+      <Filter>Source Files\Classes\uiObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\CPP\games\match3station\match3station\Classes\uiObjects\gameUi.cpp">
+      <Filter>Source Files\Classes\uiObjects</Filter>
+    </ClCompile>
     <ClCompile Include="D:\CPP\games\match3station\match3station\proj.win32\main.cpp">
       <Filter>Source Files\proj.win32</Filter>
     </ClCompile>
     <ClCompile Include="D:\CPP\games\match3station\match3station\cocos2d\cocos\precheader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\gameObjects\GameConfig.cpp">
-      <Filter>Source Files\Classes\gameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\uiObjects\gameUi.cpp">
-      <Filter>Source Files\Classes\UiObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\uiObjects\EndGameUi.cpp">
-      <Filter>Source Files\Classes\UiObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\MenuScene.cpp">
-      <Filter>Source Files\Classes</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\AppDelegate.h">
       <Filter>Source Files\Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\MainScene.h">
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\MainScene.h">
       <Filter>Source Files\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\MenuScene.h">
+      <Filter>Source Files\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameConfig.h">
+      <Filter>Source Files\Classes\gameObjects</Filter>
     </ClInclude>
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\GameField.h">
       <Filter>Source Files\Classes\gameObjects</Filter>
@@ -53,6 +59,12 @@
     </ClInclude>
     <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\gameObjects\HelpStructures.h">
       <Filter>Source Files\Classes\gameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\uiObjects\EndGameUi.h">
+      <Filter>Source Files\Classes\uiObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Classes\uiObjects\gameUi.h">
+      <Filter>Source Files\Classes\uiObjects</Filter>
     </ClInclude>
     <ClInclude Include="D:\CPP\games\match3station\match3station\proj.win32\main.h">
       <Filter>Source Files\proj.win32</Filter>
@@ -69,32 +81,62 @@
     <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\HelloWorld.png">
       <Filter>Resources</Filter>
     </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\SpaceBackGround_by_Rawdanitsu\creator.txt">
+      <Filter>Resources\SpaceBackGround_by_Rawdanitsu</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\SpaceBackGround_by_Rawdanitsu\image4.jpg">
+      <Filter>Resources\SpaceBackGround_by_Rawdanitsu</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\SpaceBackGround_by_Rawdanitsu\image5.jpg">
+      <Filter>Resources\SpaceBackGround_by_Rawdanitsu</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\SpaceBackGround_by_Rawdanitsu\image6.jpg">
+      <Filter>Resources\SpaceBackGround_by_Rawdanitsu</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\fonts\FontsLicense.txt">
+      <Filter>Resources\fonts</Filter>
+    </ClInclude>
     <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\fonts\Marker Felt.ttf">
       <Filter>Resources\fonts</Filter>
     </ClInclude>
-    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\fonts\arial.ttf">
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\fonts\XO_Oriel_Nu.ttf">
       <Filter>Resources\fonts</Filter>
     </ClInclude>
     <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\res\.gitkeep">
       <Filter>Resources\res</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\sounds\Downer01.aif">
+      <Filter>Resources\sounds</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\sounds\Downer01.mp3">
+      <Filter>Resources\sounds</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\sounds\FX01.aif">
+      <Filter>Resources\sounds</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\sounds\FX01.mp3">
+      <Filter>Resources\sounds</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\sounds\Rise02.aif">
+      <Filter>Resources\sounds</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\sounds\Rise02.mp3">
+      <Filter>Resources\sounds</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\sounds\Rise03.aif">
+      <Filter>Resources\sounds</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\sounds\Rise03.mp3">
+      <Filter>Resources\sounds</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\sounds\soundsLicense.txt">
+      <Filter>Resources\sounds</Filter>
     </ClInclude>
     <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\uvash.plist">
       <Filter>Resources</Filter>
     </ClInclude>
     <ClInclude Include="D:\CPP\games\match3station\match3station\Resources\uvash.png">
       <Filter>Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\gameObjects\GameConfig.h">
-      <Filter>Source Files\Classes\gameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\uiObjects\gameUi.h">
-      <Filter>Source Files\Classes\UiObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\uiObjects\EndGameUi.h">
-      <Filter>Source Files\Classes\UiObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\MenuScene.h">
-      <Filter>Source Files\Classes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -109,11 +151,17 @@
     <Filter Include="Resources">
       <UniqueIdentifier>{9D382D89-094D-31FA-ADFB-17DB9CC564CC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resources\SpaceBackGround_by_Rawdanitsu">
+      <UniqueIdentifier>{E5AA0524-1DAF-32E7-B398-60C5661C0718}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Resources\fonts">
       <UniqueIdentifier>{D0785B97-7B87-3387-B67E-E9985C0A3A38}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\res">
       <UniqueIdentifier>{F8E90D91-9A96-3DDF-86FE-14C0E69A2817}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\sounds">
+      <UniqueIdentifier>{60BE3B1C-16CA-3412-B657-64DF4D9BECEE}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{3296F58B-A607-3C25-86DD-5B2FE41DE901}</UniqueIdentifier>
@@ -124,11 +172,11 @@
     <Filter Include="Source Files\Classes\gameObjects">
       <UniqueIdentifier>{DD99D27D-DB33-31C9-9A9D-F9F33FDC1239}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Classes\uiObjects">
+      <UniqueIdentifier>{090E2DAC-A3B4-3C22-B95A-D0A15E9F6766}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\proj.win32">
       <UniqueIdentifier>{40CD843A-18DE-36DD-A79B-8C536F9960C3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Classes\UiObjects">
-      <UniqueIdentifier>{8933aeb0-aaeb-4277-9e40-7ed6e09df38e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
