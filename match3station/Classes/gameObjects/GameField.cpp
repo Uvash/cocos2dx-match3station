@@ -8,11 +8,16 @@ USING_NS_CC;
 
 GameField::GameField() : gameConfig{ gameConfig.getInstance() }
 {
-	screenSize = Director::getInstance()->getVisibleSize();
-	screenSize.height = gameConfig.sizeGameField.height * screenSize.height + gameConfig.offsetForGameField.height * screenSize.height;
+	screenSize = Director::getInstance()->getWinSize();
 	screenSize.width = gameConfig.sizeGameField.width * screenSize.width + gameConfig.offsetForGameField.width * screenSize.width;
+	screenSize.height = gameConfig.sizeGameField.height * screenSize.height + gameConfig.offsetForGameField.height * screenSize.height;
+
 
 	cocos2d::Size offsetPerNode{ screenSize.width / (size.w + 1), screenSize.height / (size.h + 1) };
+	
+	
+	/// TODO брать размер спрайтов из спрайтов а не магии
+	figureScale = std::min(offsetPerNode.width / 64.0f, offsetPerNode.height / 64.0f);
 }
 GameField::~GameField()
 {
@@ -45,7 +50,7 @@ void GameField::replaceFigure(point2i position)
 		return;
 
 	point2i fieldPosition = getFieldCoordinatsFromFigureAddress(addres);
-	auto visibleSize = Director::getInstance()->getVisibleSize();
+	auto visibleSize = Director::getInstance()->getWinSize();
 
 	cocos2d::Vec2 screenPosition = getScreenPositionFrom2i(fieldPosition);
 	cocos2d::Vec2 spacePosition = { screenPosition.x, screenPosition.y + visibleSize.height };
@@ -145,22 +150,8 @@ void GameField::addFigure(GameFigure* pfigure, std::vector<GameFigure*>::iterato
 
 	point2i fieldPosition = getFieldCoordinatsFromFigureAddress(addres);
 	cocos2d::Vec2 screenPositionForFirst = getScreenPositionFrom2i(fieldPosition);
-	//cocos2d::Size offsetPerNode{ screenSize.width / (size.w + 1), screenSize.height / (size.h + 1) };
-	//auto visibleSize = Director::getInstance()->getVisibleSize();
-	
-	float scaleX = screenSize.width / 480;
-	float scaleY = screenSize.height / 320;
-	float scale;
-	if (scaleX < scaleY)
-	{
-		scale = scaleX;
-	}
-	else
-	{
-		scale = scaleY;
-	}
 
-	(*iterAddres)->setScale(scale, scale);
+	(*iterAddres)->setScale(figureScale);
 	(*iterAddres)->setCoordinats(fieldPosition);
 	(*iterAddres)->setScreenPosition(screenPositionForFirst);
 }

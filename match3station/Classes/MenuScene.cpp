@@ -20,7 +20,7 @@ bool MenuScene::init()
         return false;
     }
 
-    auto visibleSize = Director::getInstance()->getVisibleSize();
+    auto visibleSize = Director::getInstance()->getWinSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     /////////////////////////////
@@ -52,12 +52,11 @@ bool MenuScene::init()
     exitText->setPosition({ buttonSize.width / 2.0f, buttonSize.height / 2.0f });
     buttonExit->addChild(exitText);
 
-    auto screenSize = Director::getInstance()->getWinSize();
 
-    buttonPlay->setPosition({ screenSize.width / 2.0f, screenSize.height / 2.0f + 100.0f });
-    buttonExit->setPosition({ screenSize.width / 2.0f, screenSize.height / 2.0f - 100.0f });
+    buttonPlay->setPosition({ visibleSize.width / 2.0f, visibleSize.height / 2.0f + 100.0f });
+    buttonExit->setPosition({ visibleSize.width / 2.0f, visibleSize.height / 2.0f - 100.0f });
 
-    float scale = screenSize.width / (3.0f * buttonSize.width);
+    float scale = visibleSize.width / (3.0f * buttonSize.width);
     buttonPlay->setScale(scale);
     buttonExit->setScale(scale);
 
@@ -71,8 +70,12 @@ bool MenuScene::init()
         throw std::runtime_error("failed to loas SpaceBackGround_by_Rawdanitsu/image4.jpg");
     }
     // position the sprite on the center of the screen
-    sprite->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
-
+    sprite->setAnchorPoint({ 0, 0 });
+    auto backGroundSize{sprite->getContentSize()};
+    Vec2 scaleCandidats{ visibleSize.width / backGroundSize.width , visibleSize.height / backGroundSize.height};
+    float scaleForScreen = std::max(scaleCandidats.y, scaleCandidats.x);
+    sprite->setScale(scaleForScreen);
+    
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
     

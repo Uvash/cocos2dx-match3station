@@ -38,7 +38,7 @@ Scene* MainScene::createScene()
 static void problemLoading(const char* filename)
 {
     printf("Error while loading: %s\n", filename);
-    printf("Depending on how you compiled you might have to add 'Resources/' in front of filenames in HelloWorldScene.cpp\n");
+    printf("Depending on how you compiled you might have to add 'Resources/' in front of filenames in MainScene.cpp\n");
 }
 
 // on "init" you need to initialize your instance
@@ -52,7 +52,7 @@ bool MainScene::init()
         return false;
     }
 
-    auto visibleSize = Director::getInstance()->getVisibleSize();
+    auto visibleSize = Director::getInstance()->getWinSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 
@@ -126,11 +126,15 @@ bool MainScene::init()
     {
         throw std::runtime_error("failed to loas SpaceBackGround_by_Rawdanitsu/image6.jpg");
     }
-    // position the sprite on the center of the screen
-    sprite->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
+
+    sprite->setAnchorPoint({ 0, 0 });
+    auto backGroundSize{ sprite->getContentSize() };
+    Vec2 scaleCandidats{ visibleSize.width / backGroundSize.width , visibleSize.height / backGroundSize.height };
+    float scaleForScreen = std::max(scaleCandidats.y, scaleCandidats.x);
+    sprite->setScale(scaleForScreen);
 
 
     loadSprites();

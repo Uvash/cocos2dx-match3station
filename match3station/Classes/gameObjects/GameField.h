@@ -46,6 +46,7 @@ public:
     void replaceFigure(point2i position);
 protected:
     cocos2d::Size screenSize;   ///< Размеры поля от экрана
+    float figureScale = 1.0f;   ///< Множитель для спрайтов фигурок
     point2i size = {5, 5 }; ///< Размер поля
     std::vector<GameFigure*> content;   ///< Вектор для хранения указателей
 

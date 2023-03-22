@@ -58,8 +58,8 @@ cocos2d::ProgressTimer* GameUi::prepareTimer(std::string spriteName)
 GameUi::GameUi()
 {
 
-	auto screenSize = Director::getInstance()->getVisibleSize();
-	cocos2d::Vec2 possibleBarSize = { (screenSize.width * 0.25f - 20.0f ) / 3, screenSize.height * 0.5f - 20.0f};
+	auto screenSize = Director::getInstance()->getWinSize();
+	cocos2d::Vec2 possibleBarSize = { (screenSize.width * 0.25f - 50.0f ) / 3, screenSize.height * 0.5f - 50.0f};
 	cocos2d::Vec2 newPosition = { screenSize.width * 0.75f , screenSize.height * 0.5f };
 
 	//Вытаскиваем спрайты из кэша
