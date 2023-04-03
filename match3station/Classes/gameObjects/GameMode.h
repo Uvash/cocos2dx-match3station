@@ -1,8 +1,8 @@
 /**
 	\addtogroup match3station
-	\brief Класс Режим игры. Определяет логику и правила игры
+	\brief Класс GameMode. Определяет логику и правила игры
 
-	\details Взаимодействует с gameUi, gameField и GameConfig. Нуждается в ссылках на первые два класса.
+	\details Взаимодействует с gameUi, gameField и GameConfig. Нуждается в ссылках на первые два класса. Наследуеться от Node, дабы соответствовать дао движка
 */
 ///@{
 #pragma once
@@ -20,7 +20,7 @@ enum class FigureType;
 
 class GameUi;
 
-class GameMode : public cocos2d::Node ///< Наследуемся от ноды, дабы соответствовать дао движка
+class GameMode : public cocos2d::Node
 {
 public:
 	/**

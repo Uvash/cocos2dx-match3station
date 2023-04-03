@@ -1,6 +1,6 @@
 /**
 	\addtogroup match3station
-	\brief Класс Сцена Меню. Создаёт сцену главного меню
+	\brief Класс MenuScene. Создаёт сцену главного меню
 */
 ///@{
 #pragma once

@@ -36,7 +36,7 @@ class GameMode;
 class GameUi;
 
 /**
-    \brief основная игровая сцена
+    \brief класс MainScene. Основная игровая сцена
     К данной сцене мы будем привязывать виджеты. Сгенерирован кокосом при создании проекта.
 */
 class MainScene : public cocos2d::Scene

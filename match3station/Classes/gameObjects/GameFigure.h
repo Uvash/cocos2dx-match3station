@@ -1,6 +1,5 @@
 /**
 	\addtogroup match3station
-	\brief Класс фигура. Представляет собой обёртку над спрайтом. Связан с GameField
 */
 ///@{
 #pragma once
@@ -28,6 +27,9 @@ enum class FigureStatus	///< Перечисление возможных ста�
 };
 
 class GameMode;
+/**
+	\brief Класс GameFigure. Представляет собой обёртку над спрайтом. Связан с GameField
+**/
 class GameFigure : public cocos2d::ui::Widget
 {
 public:
