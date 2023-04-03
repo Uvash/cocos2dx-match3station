@@ -1,6 +1,6 @@
 /**
 	\addtogroup match3station
-	\brief Класс Сцена Меню. Создаёт сцену главного меню
+	\brief РљР»Р°СЃСЃ РЎС†РµРЅР° РњРµРЅСЋ. РЎРѕР·РґР°С‘С‚ СЃС†РµРЅСѓ РіР»Р°РІРЅРѕРіРѕ РјРµРЅСЋ
 */
 ///@{
 #pragma once
@@ -15,23 +15,23 @@ public:
     virtual bool init();
 
     /**
-    \brief Каллбэк на закрытиые игры. 
-    \param[in] pSender Указатель, на того кто вызвал
+    \brief РљР°Р»Р»Р±СЌРє РЅР° Р·Р°РєСЂС‹С‚РёС‹Рµ РёРіСЂС‹. 
+    \param[in] pSender РЈРєР°Р·Р°С‚РµР»СЊ, РЅР° С‚РѕРіРѕ РєС‚Рѕ РІС‹Р·РІР°Р»
      **/
     void menuCloseCallback(cocos2d::Ref* pSender);
 
     /**
-    \brief Каллбэк на запуск MainScene
-    \param[in] pSender Указатель, на того кто вызвал
+    \brief РљР°Р»Р»Р±СЌРє РЅР° Р·Р°РїСѓСЃРє MainScene
+    \param[in] pSender РЈРєР°Р·Р°С‚РµР»СЊ, РЅР° С‚РѕРіРѕ РєС‚Рѕ РІС‹Р·РІР°Р»
      **/
     void playCallback(cocos2d::Ref* pSender);
 
     // implement the "static create()" method manually
-    CREATE_FUNC(MenuScene);    ///< добавляем static create() для дерева сцены
+    CREATE_FUNC(MenuScene);    ///< РґРѕР±Р°РІР»СЏРµРј static create() РґР»СЏ РґРµСЂРµРІР° СЃС†РµРЅС‹
 protected:
     /**
-    \brief Загружает спрайты в кэш
+    \brief Р—Р°РіСЂСѓР¶Р°РµС‚ СЃРїСЂР°Р№С‚С‹ РІ РєСЌС€
      **/
-    void loadSprites();     ///< Вспомогательная функция для загрузки листа спрайтов
+    void loadSprites();     ///< Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅР°СЏ С„СѓРЅРєС†РёСЏ РґР»СЏ Р·Р°РіСЂСѓР·РєРё Р»РёСЃС‚Р° СЃРїСЂР°Р№С‚РѕРІ
 };
 ///@}
