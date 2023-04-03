@@ -37,10 +37,10 @@ void GameUi::fancySetTimerPercent(cocos2d::ProgressTimer* timer, float percent)
 cocos2d::ProgressTimer* GameUi::prepareTimer(std::string spriteName)
 {
 	cocos2d::ProgressTimer* timer = nullptr;
-	//Âûòàñêèâàåì ñïðàéòû èç êýøà
+	//Ð’Ñ‹Ñ‚Ð°ÑÐºÐ¸Ð²Ð°ÐµÐ¼ ÑÐ¿Ñ€Ð°Ð¹Ñ‚Ñ‹ Ð¸Ð· ÐºÑÑˆÐ°
 	SpriteFrameCache* cache = SpriteFrameCache::getInstance();
 
-	//Ñîçäà¸ì 3 øêàëû ñî ñâîèìè ñïðàéòàìè
+	//Ð¡Ð¾Ð·Ð´Ð°Ñ‘Ð¼ 3 ÑˆÐºÐ°Ð»Ñ‹ ÑÐ¾ ÑÐ²Ð¾Ð¸Ð¼Ð¸ ÑÐ¿Ñ€Ð°Ð¹Ñ‚Ð°Ð¼Ð¸
 	Sprite* spriteBar = Sprite::create();
 	spriteBar->setSpriteFrame(cache->getSpriteFrameByName(spriteName));
 	timer = ProgressTimer::create(spriteBar);
@@ -62,28 +62,28 @@ GameUi::GameUi()
 	cocos2d::Vec2 possibleBarSize = { (screenSize.width * 0.25f - 50.0f ) / 3, screenSize.height * 0.5f - 50.0f};
 	cocos2d::Vec2 newPosition = { screenSize.width * 0.75f , screenSize.height * 0.5f };
 
-	//Âûòàñêèâàåì ñïðàéòû èç êýøà
+	//Ð’Ñ‹Ñ‚Ð°ÑÐºÐ¸Ð²Ð°ÐµÐ¼ ÑÐ¿Ñ€Ð°Ð¹Ñ‚Ñ‹ Ð¸Ð· ÐºÑÑˆÐ°
 	SpriteFrameCache* cache = SpriteFrameCache::getInstance();
 	
-	//Ïîäãîòàâëèâàåì ïîëîñêè
+	//ÐŸÐ¾Ð´Ð³Ð¾Ñ‚Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÐ¼ Ð¿Ð¾Ð»Ð¾ÑÐºÐ¸
 	hullConditionBar = prepareTimer("./barEng");
 	crewHealthBar = prepareTimer("./barMed");
 	orderBar = prepareTimer("./barSec");
 
-	//Îïðåäåëÿåì ðàçìåð îäíîé ïîëîñêè
+	//ÐžÐ¿Ñ€ÐµÐ´ÐµÐ»ÑÐµÐ¼ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¾Ð´Ð½Ð¾Ð¹ Ð¿Ð¾Ð»Ð¾ÑÐºÐ¸
 	auto barSize = hullConditionBar->getContentSize();
-	//Ïîñêîëüêó ìû ïîâîðà÷èâàåì ïîëîñêó, íàì íàäî ó÷èòûâàòü ýòîò ïîâîðîò â ñîîòíîøåíèÿõ
+	//ÐŸÐ¾ÑÐºÐ¾Ð»ÑŒÐºÑƒ Ð¼Ñ‹ Ð¿Ð¾Ð²Ð¾Ñ€Ð°Ñ‡Ð¸Ð²Ð°ÐµÐ¼ Ð¿Ð¾Ð»Ð¾ÑÐºÑƒ, Ð½Ð°Ð¼ Ð½Ð°Ð´Ð¾ ÑƒÑ‡Ð¸Ñ‚Ñ‹Ð²Ð°Ñ‚ÑŒ ÑÑ‚Ð¾Ñ‚ Ð¿Ð¾Ð²Ð¾Ñ€Ð¾Ñ‚ Ð² ÑÐ¾Ð¾Ñ‚Ð½Ð¾ÑˆÐµÐ½Ð¸ÑÑ…
 	cocos2d::Vec2	scaleCandidate = { possibleBarSize.x / barSize.height , possibleBarSize.y / barSize.width };
 	float scale = std::min( scaleCandidate.x , scaleCandidate.y);
 	if (scale > 1.0f)
 	{
-		//Êîððåêòèðóåì ðàçìåð îò ýêðàíà
+		//ÐšÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð¸Ñ€ÑƒÐµÐ¼ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¾Ñ‚ ÑÐºÑ€Ð°Ð½Ð°
 		hullConditionBar->setScale(scale);
 		crewHealthBar->setScale(scale);
 		orderBar->setScale(scale);
 	}
 
-	//Óñòàíàâëèâàåì íà ìåñòî
+	//Ð£ÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÐ¼ Ð½Ð° Ð¼ÐµÑÑ‚Ð¾
 	hullConditionBar->setPosition({ newPosition.x + possibleBarSize.x * 1.0f, newPosition.y });
 	crewHealthBar->setPosition({ newPosition.x + possibleBarSize.x * 2.0f, newPosition.y });
 	orderBar->setPosition({ newPosition.x + possibleBarSize.x * 3.0f, newPosition.y });

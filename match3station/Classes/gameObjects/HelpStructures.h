@@ -7,7 +7,7 @@
 #include <algorithm>
 
 /**
-	\brief Структура самопальной двумерной точки
+	\brief РЎС‚СЂСѓРєС‚СѓСЂР° СЃР°РјРѕРїР°Р»СЊРЅРѕР№ РґРІСѓРјРµСЂРЅРѕР№ С‚РѕС‡РєРё
 **/
 struct point2i
 {
@@ -55,15 +55,15 @@ struct point2i
 };
 
 /**
-	\brief Структура gameScore хранит "состояние" станции и количество очков
+	\brief РЎС‚СЂСѓРєС‚СѓСЂР° gameScore С…СЂР°РЅРёС‚ "СЃРѕСЃС‚РѕСЏРЅРёРµ" СЃС‚Р°РЅС†РёРё Рё РєРѕР»РёС‡РµСЃС‚РІРѕ РѕС‡РєРѕРІ
 **/
 
 struct gameScore
 {
-	float hullCondition = 100.0f;	///< Состояние корпуса
-	float crewHealth = 100.0f;	///< Состояние здоровья экипажа
-	float order = 100.0f;	///< Состояние порядка среди экипажа
-	int score = 0;	///< Количество очков
+	float hullCondition = 100.0f;	///< РЎРѕСЃС‚РѕСЏРЅРёРµ РєРѕСЂРїСѓСЃР°
+	float crewHealth = 100.0f;	///< РЎРѕСЃС‚РѕСЏРЅРёРµ Р·РґРѕСЂРѕРІСЊСЏ СЌРєРёРїР°Р¶Р°
+	float order = 100.0f;	///< РЎРѕСЃС‚РѕСЏРЅРёРµ РїРѕСЂСЏРґРєР° СЃСЂРµРґРё СЌРєРёРїР°Р¶Р°
+	int score = 0;	///< РљРѕР»РёС‡РµСЃС‚РІРѕ РѕС‡РєРѕРІ
 
 	inline void setHullCondition(float newValue) { hullCondition = std::clamp(newValue, 0.0f, 100.0f); }
 	inline void setCrewHealth(float newValue) { crewHealth = std::clamp(newValue, 0.0f, 100.0f); }
